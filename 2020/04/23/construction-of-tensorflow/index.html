@@ -16,6 +16,7 @@
 <meta property="og:description" content="目录   准备工作 Anaconda安装 pip和conda镜像源设置   安装tensorflow 在PyCharm中使用已创建的环境 为新项目配置已创建的环境 为现有项目配置已创建的环境   总结    准备工作Anaconda安装 什么是Anaconda？ Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anacond">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/Anaconda_1.png">
+<meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/Anaconda_1.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/Anaconda_2.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/pip_1.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/Tensorflow_1.png">
@@ -27,7 +28,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/PyCharm_4.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/PyCharm_5.png">
 <meta property="article:published_time" content="2020-04-23T09:14:37.000Z">
-<meta property="article:modified_time" content="2020-04-23T14:49:15.317Z">
+<meta property="article:modified_time" content="2020-04-24T03:04:17.828Z">
 <meta property="article:author" content="Will Ling">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Tensorflow">
@@ -212,7 +213,9 @@
 <li><p>注意在安装时这一步两个选项都要勾选（第一个选项默认是未勾选的，用于设置环境变量）</p>
 </li>
 </ul>
-<img src="Anaconda_1.png" style="zoom:80%;">
+<img src="/2020/04/23/construction-of-tensorflow/Anaconda_1.png" style="zoom:80%;">
+
+<img src="/2020/04/23/construction-of-tensorflow/Anaconda_1.png" class>
 </li>
 <li><p>检查环境变量是否正常配置</p>
 <p>打开命令行，输入：</p>
@@ -221,7 +224,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
 
 <p>  如果环境变量正常，会显示conda版本号：</p>
-  <img src="Anaconda_2.png" style="zoom:80%;">
+  <img src="/2020/04/23/construction-of-tensorflow/Anaconda_2.png" style="zoom:80%;">
 
 <p><br><br></p>
 <h4><span id="pip和conda镜像源设置">pip和conda镜像源设置</span></h4><ul>
@@ -238,7 +241,7 @@
 <li><p>修改pip镜像源</p>
 <ul>
 <li><p>在 C:\Users\XX(用户名)\ 目录下新建文件夹pip，然后在pip文件夹中新建文件pip.ini</p>
- <img src="pip_1.png" style="zoom: 80%;">
+ <img src="/2020/04/23/construction-of-tensorflow/pip_1.png" style="zoom: 80%;">
 </li>
 <li><p>在pip.ini中输入：</p>
 </li>
@@ -266,10 +269,10 @@
 
 <p>  以建立一个新环境，此处我选择的python版本是3.6</p>
 <p>  输入<code>conda info --envs</code>可以显示当前已经安装的环境：</p>
-  <img src="Tensorflow_1.png" style="zoom:80%;">
+  <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_1.png" style="zoom:80%;">
 
 <p>  输入<code>activate tensorflow</code>激活刚刚创建的环境：</p>
-  <img src="Tensorflow_2.png" style="zoom:80%;">
+  <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_2.png" style="zoom:80%;">
 
 <p>  如图则表示激活成功。</p>
 <p>  输入<code>deactivate tensorflow</code>退出当前环境。</p>
@@ -293,26 +296,26 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip show tensorflow</span><br></pre></td></tr></table></figure>
 
 <p>   如果安装成功，会显示tensorflow版本号与相关信息：</p>
-   <img src="Tensorflow_3.png" style="zoom:80%;">
+   <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_3.png" style="zoom:80%;">
 
 <p><br><br><br><br></p>
 <h3><span id="在pycharm中使用已创建的环境">在PyCharm中使用已创建的环境</span></h3><div id="new_Project"></div>
 
 <h4><span id="为新项目配置已创建的环境">为新项目配置已创建的环境</span></h4><p>创建新项目：</p>
-<img src="PyCharm_1.png" style="zoom: 67%;">
+<img src="/2020/04/23/construction-of-tensorflow/PyCharm_1.png" style="zoom: 67%;">
 
 <p>选择Project Interpreter =&gt; Existing interpreter，如下图所示：</p>
-<img src="PyCharm_2.png" style="zoom: 67%;">
+<img src="/2020/04/23/construction-of-tensorflow/PyCharm_2.png" style="zoom: 67%;">
 
 <p>在左侧选择Conda Environment，在Interpreter中选择之前创建的tensorflow环境中的python编译器的路径（应当在安装Anaconda的目录下的envs文件夹下的tensorflow文件夹中）：</p>
-<img src="PyCharm_3.png" style="zoom: 67%;">
+<img src="/2020/04/23/construction-of-tensorflow/PyCharm_3.png" style="zoom: 67%;">
 
 <p>选择确定即可成功新建项目。</p>
 <h4><span id="为现有项目配置已创建的环境">为现有项目配置已创建的环境</span></h4><p>打开现有项目，选择 文件（File）=&gt; 设置（Settings），在左侧选择 当前项目（Project）=&gt; Project Interpreter</p>
-<img src="PyCharm_4.png" style="zoom: 67%;">
+<img src="/2020/04/23/construction-of-tensorflow/PyCharm_4.png" style="zoom: 67%;">
 
 <p>点击右侧的齿轮，选择Add</p>
-<p><img src="PyCharm_5.png" alt></p>
+<p><img src="/2020/04/23/construction-of-tensorflow/PyCharm_5.png" alt></p>
 <p>后续步骤与<a href="#new_Project">为新项目配置已有环境</a>相同。</p>
 <br>
 
