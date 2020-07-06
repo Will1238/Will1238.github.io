@@ -146,6 +146,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-LeetCode/Tree/95.Unique-Binary-Search-Trees-II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/06/LeetCode/Tree/95.Unique-Binary-Search-Trees-II/">95.不同的二叉搜索树II</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/06/LeetCode/Tree/95.Unique-Binary-Search-Trees-II/" class="archive-article-date">
+  	<time datetime="2020-07-06T09:21:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><a href="https://leetcode-cn.com/problems/unique-binary-search-trees-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/unique-binary-search-trees-ii</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定一个整数 n，生成所有由 1 … n 为节点所组成的 二叉搜索树 。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">输入：3</span><br><span class="line">输出：</span><br><span class="line">[</span><br><span class="line">  [1,null,3,2],</span><br><span class="line">  [3,2,null,1],</span><br><span class="line">  [3,1,null,null,2],</span><br><span class="line">  [2,1,3],</span><br><span class="line">  [1,null,2,null,3]</span><br><span class="line">]</span><br><span class="line">解释：</span><br><span class="line">以上的输出对应以下 5 种不同结构的二叉搜索树：</span><br><span class="line"></span><br><span class="line">   1         3     3      2      1</span><br><span class="line">    \       &#x2F;     &#x2F;      &#x2F; \      \</span><br><span class="line">     3     2     1      1   3      2</span><br><span class="line">    &#x2F;     &#x2F;       \                 \</span><br><span class="line">   2     1         2                 3</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong> <code>0 &lt;= n &lt;= 8</code></p>
+<h4 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h4><p>和【96.不同的二叉树】的思路有部分相似，并不用考虑1<del>n为节点所能够构成的二叉搜索树，而是考虑更一般的情况，直接处理a</del>b为节点所构成的二叉搜索树的情况。</p>
+<p>本题所需的结果是树的集合，通过递归进行处理。创建签名为generateAToB(int a, int b)的函数，作用是返回a~b之间所有节点所组成的二叉搜索树所有情况的集合。</p>
+<p>generateAToB函数的原理是：</p>
+<ul>
+<li>依次选取a~b中的一个数i</li>
+<li>以数i建立根节点root</li>
+<li>通过generateAToB函数分别得到<code>a~i-1</code>和<code>i+1~b</code>所能构成的所有左子树和右子树的集合</li>
+<li>通过循环对左子树和右子树进行组合，并将每种组合的情况依次存入新的集合中</li>
+<li>返回新的集合</li>
+</ul>
+        
+          <a class="article-more-a" href="/2020/07/06/LeetCode/Tree/95.Unique-Binary-Search-Trees-II/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/06/LeetCode/Tree/95.Unique-Binary-Search-Trees-II/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LeetCode/Tree/96.Unique-Binary-Search-Trees" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1002,84 +1101,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/03/31/some-problems-in-the-process-of-blog-building/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/29/my-first-blog/">测试博客</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/29/my-first-blog/" class="archive-article-date">
-  	<time datetime="2020-03-29T08:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>本篇用于调试该博客的相关内容。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Test</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Notes</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/29/my-first-blog/">展开全文 >></a>
         </p>
       
 
