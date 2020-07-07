@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Ling&#39;s Storm</title>
+  <title>98.验证二叉搜索树 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ling&#39;s Storm">
-<meta property="og:url" content="http://yoursite.com/archives/2020/page/2/index.html">
+  <meta name="description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;validate-binary-search-tree 题目描述给定一个二叉树，判断其是否是一个有效的二叉搜索树。 假设一个二叉搜索树具有如下特征：  节点的左子树只包含小于当前节点的数。 节点的右子树只包含大于当前节点的数。 所有左子树和右子树自身必须也是二叉搜索树。  示例 1: 12345输入:    2   &#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="98.验证二叉搜索树">
+<meta property="og:url" content="http://yoursite.com/2020/07/07/LeetCode/Tree/98.Validate-Binary-Search-Tree/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
+<meta property="og:description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;validate-binary-search-tree 题目描述给定一个二叉树，判断其是否是一个有效的二叉搜索树。 假设一个二叉搜索树具有如下特征：  节点的左子树只包含小于当前节点的数。 节点的右子树只包含大于当前节点的数。 所有左子树和右子树自身必须也是二叉搜索树。  示例 1: 12345输入:    2   &#x2F;">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-07T13:51:03.000Z">
+<meta property="article:modified_time" content="2020-07-07T14:06:03.924Z">
 <meta property="article:author" content="Will Ling">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="Tree">
+<meta property="article:tag" content="Algorithms">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Ling&#39;s Storm" type="application/atom+xml">
@@ -144,132 +151,191 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-LeetCode/Tree/98.Validate-Binary-Search-Tree" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/31/some-problems-in-the-process-of-blog-building/" class="archive-article-date">
-  	<time datetime="2020-03-31T12:24:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/31/some-problems-in-the-process-of-blog-building/">博客搭建过程中的若干问题</a>
+    <h1 class="article-title" itemprop="name">
+      98.验证二叉搜索树
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/07/LeetCode/Tree/98.Validate-Binary-Search-Tree/" class="archive-article-date">
+  	<time datetime="2020-07-07T13:51:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4><span id="链接">链接</span></h4><p><a href="https://leetcode-cn.com/problems/validate-binary-search-tree" target="_blank" rel="noopener">https://leetcode-cn.com/problems/validate-binary-search-tree</a></p>
+<h4><span id="题目描述">题目描述</span></h4><p>给定一个二叉树，判断其是否是一个有效的二叉搜索树。</p>
+<p>假设一个二叉搜索树具有如下特征：</p>
+<ul>
+<li>节点的左子树只包含小于当前节点的数。</li>
+<li>节点的右子树只包含大于当前节点的数。</li>
+<li>所有左子树和右子树自身必须也是二叉搜索树。</li>
+</ul>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">    2</span><br><span class="line">   &#x2F; \</span><br><span class="line">  1   3</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">    5</span><br><span class="line">   &#x2F; \</span><br><span class="line">  1   4</span><br><span class="line">     &#x2F; \</span><br><span class="line">    3   6</span><br><span class="line">输出: false</span><br><span class="line">解释: 输入为: [5,1,4,null,null,3,6]。</span><br><span class="line">     根节点的值为 5 ，但是其右子节点值为 4</span><br></pre></td></tr></table></figure>
+
+
+
+<h4><span id="我的思路中序遍历">我的思路（中序遍历）</span></h4><p>如果一棵二叉树是二叉搜索树，那么其中序遍历必然满足升序排列，因此只要验证所给二叉树的中序遍历序列是否是升序排列，即可验证其是否是二叉搜索树。</p>
+<h4><span id="更快的参考思路递归解法官方解法一">更快的参考思路（递归解法）（官方解法一）</span></h4><p>递归求解，每次通过设定开区间（lower，upper）来限制子树的节点范围，如果子树落在区间外则返回false。</p>
+<a id="more"></a>
+
+<h4><span id="我的解法java">我的解法（Java）</span></h4><br>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        inOrderTranserval(root, list);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (list.get(i) &gt;= list.get(i+<span class="number">1</span>)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">inOrderTranserval</span><span class="params">(TreeNode root, List&lt;Integer&gt; list)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        inOrderTranserval(root.left, list);</span><br><span class="line">        list.add(root.val);</span><br><span class="line">        inOrderTranserval(root.right, list);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4><span id="参考解法java">参考解法（Java）</span></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(root, Long.MIN_VALUE, Long.MAX_VALUE);</span><br><span class="line">   &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">helper</span><span class="params">(TreeNode node, Long lower, Long upper)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">long</span> val = (<span class="keyword">long</span>)node.val;</span><br><span class="line">        <span class="keyword">if</span>(lower &gt;= val || upper &lt;= val) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">return</span> helper(node.left, lower, val) &amp;&amp; helper(node.right, val, upper);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/29/my-first-blog/" class="archive-article-date">
-  	<time datetime="2020-03-29T08:39:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/29/my-first-blog/">测试博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Notes</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/07/LeetCode/Tree/98.Validate-Binary-Search-Tree/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/29/hello-world/" class="archive-article-date">
-  	<time datetime="2020-03-29T08:13:40.597Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/06/LeetCode/Tree/95.Unique-Binary-Search-Trees-II/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">95.不同的二叉搜索树II</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/29/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">我的思路（中序遍历）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">4.</span> <span class="toc-text">更快的参考思路（递归解法）（官方解法一）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">5.</span> <span class="toc-text">我的解法（Java）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">6.</span> <span class="toc-text">参考解法（Java）</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2020/">&amp;laquo; Prev</a><a class="page-number" href="/archives/2020/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -293,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
