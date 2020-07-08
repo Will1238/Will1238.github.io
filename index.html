@@ -146,6 +146,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-LeetCode/Tree/103.Binary-Tree-Zigzag-Level-Order-Traversal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/08/LeetCode/Tree/103.Binary-Tree-Zigzag-Level-Order-Traversal/">103.二叉树的锯齿形层次遍历</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/08/LeetCode/Tree/103.Binary-Tree-Zigzag-Level-Order-Traversal/" class="archive-article-date">
+  	<time datetime="2020-07-08T07:38:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><a href="https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个二叉树，请你返回其按<code>层序遍历</code>得到的节点值。 （即逐层地，从左到右访问所有节点）。</p>
+<p><strong>示例：</strong><br>二叉树：<code>[3,9,20,null,null,15,7]</code>,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9  20</span><br><span class="line">  &#x2F;  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
+
+<p>返回其层次遍历结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [20,9],</span><br><span class="line">  [15,7]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="我的思路（DFS）"><a href="#我的思路（DFS）" class="headerlink" title="我的思路（DFS）"></a>我的思路（DFS）</h4><p>几乎和102题的解法一致，唯一需要修改的地方在于新元素插入List中的方式：当元素处于第0，2，4…层时，采用尾插法；当元素处于第1，3，5…层时，采用头插法。对于Java中的List数据结构，尾插法即直接调用add(E e)函数，头插法调用add(int index，E element)函数。</p>
+<h4 id="另一种解法（官方解法一）（BFS）"><a href="#另一种解法（官方解法一）（BFS）" class="headerlink" title="另一种解法（官方解法一）（BFS）"></a>另一种解法（官方解法一）（BFS）</h4><p>通过双端队列进行，同样采用头插法与尾插法来实现锯齿形层序遍历，通过分隔符（空节点等）分隔不同层的节点。</p>
+        
+          <a class="article-more-a" href="/2020/07/08/LeetCode/Tree/103.Binary-Tree-Zigzag-Level-Order-Traversal/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/08/LeetCode/Tree/103.Binary-Tree-Zigzag-Level-Order-Traversal/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LeetCode/Tree/102.Binary-Tree-Level-Order-Traversal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -153,7 +248,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/08/LeetCode/Tree/102.Binary-Tree-Level-Order-Traversal/">102.Binary Tree Level Order Traversal</a>
+      <a class="article-title" href="/2020/07/08/LeetCode/Tree/102.Binary-Tree-Level-Order-Traversal/">102.二叉树的层次遍历</a>
     </h1>
   
 
@@ -167,7 +262,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal" target="_blank" rel="noopener">https://leetcode-cn.com/problems/binary-tree-level-order-traversal</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个二叉树，请你返回其按 <code>层序遍历</code> 得到的节点值。 （即逐层地，从左到右访问所有节点）。</p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个二叉树，请你返回其按<code>层序遍历</code>得到的节点值。 （即逐层地，从左到右访问所有节点）。</p>
 <p><strong>示例：</strong><br>二叉树：<code>[3,9,20,null,null,15,7]</code>,</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9  20</span><br><span class="line">  &#x2F;  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
 
@@ -1039,96 +1134,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/19/Offer/Question-of-QueHun/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LeetCode/Tree/617.Merge Two Binary Trees" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/LeetCode/Tree/617.Merge%20Two%20Binary%20Trees/">617.合并二叉树</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/18/LeetCode/Tree/617.Merge%20Two%20Binary%20Trees/" class="archive-article-date">
-  	<time datetime="2020-04-18T13:49:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><a href="https://leetcode-cn.com/problems/merge-two-binary-trees" target="_blank" rel="noopener">https://leetcode-cn.com/problems/merge-two-binary-trees</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定两个二叉树，想象当你将它们中的一个覆盖到另一个上时，两个二叉树的一些节点便会重叠。</p>
-<p>你需要将他们合并为一个新的二叉树。合并的规则是如果两个节点重叠，那么将他们的值相加作为节点合并后的新值，否则不为 NULL 的节点将直接作为新二叉树的节点。</p>
-<h5 id="示例-1"><a href="#示例-1" class="headerlink" title="示例 1:"></a>示例 1:</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">	Tree 1                     Tree 2                  </span><br><span class="line">          1                         2                             </span><br><span class="line">         &#x2F; \                       &#x2F; \                            </span><br><span class="line">        3   2                     1   3                        </span><br><span class="line">       &#x2F;                           \   \                      </span><br><span class="line">      5                             4   7                  </span><br><span class="line">输出: </span><br><span class="line">合并后的树:</span><br><span class="line">	     3</span><br><span class="line">	    &#x2F; \</span><br><span class="line">	   4   5</span><br><span class="line">	  &#x2F; \   \ </span><br><span class="line">	 5   4   7</span><br></pre></td></tr></table></figure>
-
-<p>注意: 合并必须从两个树的根节点开始。</p>
-<h4 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h4><p>首先，该问题在子问题上是相同的，因此通过递归求解最为方便。因此，在先序遍历的框架上进行求解即可。在t1的基础上进行合并，当两棵树存在重叠节点时进行求和作为新节点，当只有一棵树存在的节点直接返回该节点（子树）作为新二叉树节点即可。</p>
-<h4 id="我的解法（Java）"><a href="#我的解法（Java）" class="headerlink" title="我的解法（Java）"></a>我的解法（Java）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">mergeTrees</span><span class="params">(TreeNode t1, TreeNode t2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (t1 == <span class="keyword">null</span> &amp;&amp; t2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t1 != <span class="keyword">null</span> &amp;&amp; t2 == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> t1;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (t1 == <span class="keyword">null</span> &amp;&amp; t2 != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> t2;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            t1.val += t2.val;</span><br><span class="line">            t1.left = mergeTrees(t1.left, t2.left);</span><br><span class="line">            t1.right = mergeTrees(t1.right, t2.right);</span><br><span class="line">            <span class="keyword">return</span> t1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/LeetCode/Tree/617.Merge%20Two%20Binary%20Trees/">展开全文 >></a>
         </p>
       
 
