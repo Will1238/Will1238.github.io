@@ -146,6 +146,101 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-LeetCode/Tree/102.Binary-Tree-Level-Order-Traversal" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/08/LeetCode/Tree/102.Binary-Tree-Level-Order-Traversal/">102.Binary Tree Level Order Traversal</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/08/LeetCode/Tree/102.Binary-Tree-Level-Order-Traversal/" class="archive-article-date">
+  	<time datetime="2020-07-08T07:00:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal" target="_blank" rel="noopener">https://leetcode-cn.com/problems/binary-tree-level-order-traversal</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给你一个二叉树，请你返回其按 <code>层序遍历</code> 得到的节点值。 （即逐层地，从左到右访问所有节点）。</p>
+<p><strong>示例：</strong><br>二叉树：<code>[3,9,20,null,null,15,7]</code>,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">9  20</span><br><span class="line">  &#x2F;  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
+
+<p>返回其层次遍历结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [9,20],</span><br><span class="line">  [15,7]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h4 id="我的思路（最快解法）"><a href="#我的思路（最快解法）" class="headerlink" title="我的思路（最快解法）"></a>我的思路（最快解法）</h4><p>典型的层序遍历，需要输出每一层的元素。以前序遍历为框架，在递归遍历时多传递一个层数的参数，用于表明当前节点所属的层。</p>
+<p>在遍历时，将当前节点加入其所属层次的集合，再依次遍历其左子树和右子树。</p>
+        
+          <a class="article-more-a" href="/2020/07/08/LeetCode/Tree/102.Binary-Tree-Level-Order-Traversal/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/08/LeetCode/Tree/102.Binary-Tree-Level-Order-Traversal/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LeetCode/Tree/98.Validate-Binary-Search-Tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1034,95 +1129,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/04/18/LeetCode/Tree/617.Merge%20Two%20Binary%20Trees/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LeetCode/Tree/938.Range Sum of BST" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/18/LeetCode/Tree/938.Range%20Sum%20of%20BST/">938.二叉搜索树的范围和</a>
-    </h1>
-  
-
-        
-        <a href="/2020/04/18/LeetCode/Tree/938.Range%20Sum%20of%20BST/" class="archive-article-date">
-  	<time datetime="2020-04-18T13:45:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><a href="https://leetcode-cn.com/problems/range-sum-of-bst" target="_blank" rel="noopener">https://leetcode-cn.com/problems/range-sum-of-bst</a></p>
-<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定二叉搜索树的根结点 root，返回 L 和 R（含）之间的所有结点的值的和。</p>
-<p>二叉搜索树保证具有唯一的值。</p>
-<h5 id="示例-1："><a href="#示例-1：" class="headerlink" title="示例 1："></a>示例 1：</h5><p>输入：root = [10,5,15,3,7,null,18], L = 7, R = 15<br>输出：32</p>
-<h5 id="示例-2："><a href="#示例-2：" class="headerlink" title="示例 2："></a>示例 2：</h5><p>输入：root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10<br>输出：23</p>
-<h4 id="我的思路"><a href="#我的思路" class="headerlink" title="我的思路"></a>我的思路</h4><p>使用二叉树的中序遍历为框架，将满足条件的结点加入结果中即可。</p>
-<h4 id="我的解法（Java）"><a href="#我的解法（Java）" class="headerlink" title="我的解法（Java）"></a>我的解法（Java）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rangeSumBST</span><span class="params">(TreeNode root, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">            sum += rangeSumBST(root.left, L, R);</span><br><span class="line">            <span class="keyword">if</span> (root.val &gt;= L &amp;&amp; root.val &lt;= R) sum += root.val;</span><br><span class="line">            sum += rangeSumBST(root.right, L, R);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LeetCode</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Tree</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/04/18/LeetCode/Tree/938.Range%20Sum%20of%20BST/">展开全文 >></a>
         </p>
       
 
