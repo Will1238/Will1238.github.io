@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>99.恢复二叉搜索树 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;recover-binary-search-tree&#x2F; 题目描述二叉搜索树中的两个节点被错误地交换。 我的思路解决问题的关键在于：定位交换的两个节点。 解决该问题的核心之一在于：一棵（元素不重复的）二叉搜索树的中序遍历的结果应当是一个升序排列的序列。 因此，如果二叉搜索树的两个节点进行了交换，那么在遍历序列中，应当会出现两次当前">
+  <meta name="description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;recover-binary-search-tree&#x2F; 题目描述二叉搜索树中的两个节点被错误地交换。 请在不改变其结构的情况下，恢复这棵树。 示例 1: 123456789101112131415输入: [1,3,null,null,2]   1  &#x2F; 3  \   2输出: [3,1,null,null,2]   3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="99.恢复二叉搜索树">
 <meta property="og:url" content="http://yoursite.com/2020/07/13/LeetCode/Tree/99.Recover-Binary-Search-Tree/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;recover-binary-search-tree&#x2F; 题目描述二叉搜索树中的两个节点被错误地交换。 我的思路解决问题的关键在于：定位交换的两个节点。 解决该问题的核心之一在于：一棵（元素不重复的）二叉搜索树的中序遍历的结果应当是一个升序排列的序列。 因此，如果二叉搜索树的两个节点进行了交换，那么在遍历序列中，应当会出现两次当前">
+<meta property="og:description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;recover-binary-search-tree&#x2F; 题目描述二叉搜索树中的两个节点被错误地交换。 请在不改变其结构的情况下，恢复这棵树。 示例 1: 123456789101112131415输入: [1,3,null,null,2]   1  &#x2F; 3  \   2输出: [3,1,null,null,2]   3">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-13T13:40:58.000Z">
-<meta property="article:modified_time" content="2020-07-13T14:59:12.666Z">
+<meta property="article:modified_time" content="2020-07-13T15:05:22.376Z">
 <meta property="article:author" content="Will Ling">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Tree">
@@ -173,6 +173,18 @@
       
         <h4><span id="链接">链接</span></h4><p><a href="https://leetcode-cn.com/problems/recover-binary-search-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/recover-binary-search-tree/</a></p>
 <h4><span id="题目描述">题目描述</span></h4><p>二叉搜索树中的两个节点被错误地交换。</p>
+<p>请在不改变其结构的情况下，恢复这棵树。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">输入: [1,3,null,null,2]</span><br><span class="line"></span><br><span class="line">   1</span><br><span class="line">  &#x2F;</span><br><span class="line"> 3</span><br><span class="line">  \</span><br><span class="line">   2</span><br><span class="line"></span><br><span class="line">输出: [3,1,null,null,2]</span><br><span class="line"></span><br><span class="line">   3</span><br><span class="line">  &#x2F;</span><br><span class="line"> 1</span><br><span class="line">  \</span><br><span class="line">   2</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">输入: [3,1,4,null,null,2]</span><br><span class="line"></span><br><span class="line">  3</span><br><span class="line"> &#x2F; \</span><br><span class="line">1   4</span><br><span class="line">   &#x2F;</span><br><span class="line">  2</span><br><span class="line"></span><br><span class="line">输出: [2,1,4,null,null,3]</span><br><span class="line"></span><br><span class="line">  2</span><br><span class="line"> &#x2F; \</span><br><span class="line">1   4</span><br><span class="line">   &#x2F;</span><br><span class="line">  3</span><br></pre></td></tr></table></figure>
+
+<p><strong>进阶:</strong></p>
+<ul>
+<li>使用 O(<em>n</em>) 空间复杂度的解法很容易实现。</li>
+<li>你能想出一个只使用常数空间的解决方案吗？</li>
+</ul>
 <h4><span id="我的思路">我的思路</span></h4><p>解决问题的关键在于：定位交换的两个节点。</p>
 <p>解决该问题的核心之一在于：一棵（元素不重复的）二叉搜索树的<strong>中序遍历</strong>的结果应当是一个<strong>升序排列</strong>的序列。</p>
 <p>因此，如果二叉搜索树的两个节点进行了交换，那么在遍历序列中，应当会出现两次当前节点值比其前一个节点值大的情况。比如，如果一棵正常的二叉搜索树的遍历序列是<code>[1,2,3,4,5]</code>，交换节点<code>2</code>和<code>4</code>之后，遍历序列变为<code>[1,4,3,2,5]</code>，可以发现<code>3&lt;4</code>和<code>2&lt;3</code>，借此，就可以通过<strong>中序遍历序列</strong>和<strong>节点值的比较</strong>对需要交换的节点进行定位。</p>
