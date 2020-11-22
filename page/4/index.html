@@ -146,6 +146,115 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Offer/Question-of-QueHun" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/19/Offer/Question-of-QueHun/">雀魂启动！</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/19/Offer/Question-of-QueHun/" class="archive-article-date">
+  	<time datetime="2020-04-19T13:35:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-19</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p><a href="https://www.nowcoder.com/questionTerminal/448127caa21e462f9c9755589a8f2416" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/448127caa21e462f9c9755589a8f2416</a></p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>(本题源于字节跳动2019春招笔试题)</p>
+<p>小包最近迷上了一款叫做雀魂的麻将游戏，但是这个游戏规则太复杂，小包玩了几个月了还是输多赢少。  于是生气的小包根据游戏简化了一下规则发明了一种新的麻将，只留下一种花色，并且去除了一些特殊和牌方式（例如七对子等），具体的规则如下：  </p>
+<ol>
+<li>​    总共有36张牌，每张牌是1~9。每个数字4张牌。    </li>
+<li>​    你手里有其中的14张牌，如果这14张牌满足如下条件，即算作和牌    </li>
+</ol>
+<ul>
+<li><p>​    14张牌中有2张相同数字的牌，称为雀头。   </p>
+</li>
+<li><p>​    除去上述2张牌，剩下12张牌可以组成4个顺子或刻子。顺子的意思是递增的连续3个数字牌（例如234,567等），刻子的意思是相同数字的3个数字牌（例如111,777）   </p>
+<p>例如：  </p>
+<p>1 1 1 2 2 2 6 6 6 7 7 7 9 9 可以组成1,2,6,7的4个刻子和9的雀头，可以和牌  </p>
+<p>1 1 1 1 2 2 3 3 5 6 7 7 8 9 用1做雀头，组123,123,567,789的四个顺子，可以和牌  </p>
+<p>1 1 1 2 2 2 3 3 3 5 6 7 7 9 无论用1 2 3 7哪个做雀头，都无法组成和牌的条件。  </p>
+<p>现在，小包从36张牌中抽取了13张牌，他想知道在剩下的23张牌中，再取一张牌，取到哪几种数字牌可以和牌。  </p>
+</li>
+</ul>
+<h6 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述:"></a><strong>输入描述:</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输入只有一行，包含13个数字，用空格分隔，每个数字在1~9之间，数据保证同种数字最多出现4次。</span><br></pre></td></tr></table></figure>
+
+<h6 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述:"></a><strong>输出描述:</strong></h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输出同样是一行，包含1个或以上的数字。代表他再取到哪些牌可以和牌。若满足条件的有多种牌，请按从小到大的顺序输出。若没有满足条件的牌，请输出一个数字0</span><br></pre></td></tr></table></figure>
+
+<h6 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h6><p>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 1 1 2 2 2 5 5 5 6 6 6 9</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<p>说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">可以组成1,2,6,7的4个刻子和9的雀头</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2020/04/19/Offer/Question-of-QueHun/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Algorithms</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Backtracking</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/04/19/Offer/Question-of-QueHun/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LeetCode/Tree/617.Merge Two Binary Trees" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
