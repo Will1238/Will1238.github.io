@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>513.找树左下角的值 | Ling&#39;s Storm</title>
+  <title>515.在每个树行中找最大值 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="链接513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，在树的最后一行找到最左边的值。 示例 1: 12345678输入:  2 &#x2F; \1   3输出:1  示例 2: 123456789101112输入:    1   &#x2F; \  2   3 &#x2F;   &#x2F; \4   5   6   &#x2F;">
+  <meta name="description" content="链接515. 在每个树行中找最大值 - 力扣（LeetCode） (leetcode-cn.com) 题目描述您需要在二叉树的每一行中找到最大的值。 示例： 123456789输入:       1     &#x2F; \    3   2   &#x2F; \   \    5   3   9 输出: [1, 3, 9]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="513.找树左下角的值">
-<meta property="og:url" content="http://yoursite.com/2020/12/02/LeetCode/Tree/513.Find-Bottom-Left-Tree-Value/index.html">
+<meta property="og:title" content="515.在每个树行中找最大值">
+<meta property="og:url" content="http://yoursite.com/2020/12/02/LeetCode/Tree/515.Find-Largest-Value-in-Each-Tree-Row/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="链接513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，在树的最后一行找到最左边的值。 示例 1: 12345678输入:  2 &#x2F; \1   3输出:1  示例 2: 123456789101112输入:    1   &#x2F; \  2   3 &#x2F;   &#x2F; \4   5   6   &#x2F;">
+<meta property="og:description" content="链接515. 在每个树行中找最大值 - 力扣（LeetCode） (leetcode-cn.com) 题目描述您需要在二叉树的每一行中找到最大的值。 示例： 123456789输入:       1     &#x2F; \    3   2   &#x2F; \   \    5   3   9 输出: [1, 3, 9]">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-12-02T12:50:15.000Z">
-<meta property="article:modified_time" content="2020-12-02T12:58:44.849Z">
+<meta property="article:published_time" content="2020-12-02T13:30:43.000Z">
+<meta property="article:modified_time" content="2020-12-02T13:40:52.051Z">
 <meta property="article:author" content="Will Ling">
 <meta property="article:tag" content="LeetCode">
 <meta property="article:tag" content="Tree">
@@ -151,47 +151,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LeetCode/Tree/513.Find-Bottom-Left-Tree-Value" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-LeetCode/Tree/515.Find-Largest-Value-in-Each-Tree-Row" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      513.找树左下角的值
+      515.在每个树行中找最大值
     </h1>
   
 
         
-        <a href="/2020/12/02/LeetCode/Tree/513.Find-Bottom-Left-Tree-Value/" class="archive-article-date">
-  	<time datetime="2020-12-02T12:50:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-02</time>
+        <a href="/2020/12/02/LeetCode/Tree/515.Find-Largest-Value-in-Each-Tree-Row/" class="archive-article-date">
+  	<time datetime="2020-12-02T13:30:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3><span id="链接">链接</span></h3><p><a href="https://leetcode-cn.com/problems/find-bottom-left-tree-value/" target="_blank" rel="noopener">513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<h3><span id="题目描述">题目描述</span></h3><p>给定一个二叉树，在树的最后一行找到最左边的值。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">  2</span><br><span class="line"> &#x2F; \</span><br><span class="line">1   3</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+        <h3><span id="链接">链接</span></h3><p><a href="https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/" target="_blank" rel="noopener">515. 在每个树行中找最大值 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+<h3><span id="题目描述">题目描述</span></h3><p>您需要在二叉树的每一行中找到最大的值。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line"></span><br><span class="line">      1</span><br><span class="line">     &#x2F; \</span><br><span class="line">    3   2</span><br><span class="line">   &#x2F; \   \  </span><br><span class="line">  5   3   9 </span><br><span class="line"></span><br><span class="line">输出: [1, 3, 9]</span><br></pre></td></tr></table></figure>
 
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">    1</span><br><span class="line">   &#x2F; \</span><br><span class="line">  2   3</span><br><span class="line"> &#x2F;   &#x2F; \</span><br><span class="line">4   5   6</span><br><span class="line">   &#x2F;</span><br><span class="line">  7</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意:</strong> 您可以假设树（即给定的根节点）不为 NULL。</p>
 <a id="more"></a>
 
 <br>
 
 
-<h3><span id="我的思路">我的思路</span></h3><p>重点是明确题设条件，要寻找的节点必然是叶子节点（没有子节点），并且处于最下层的最左边。</p>
-<p>对于叶子节点，可以先记录其值与所在层数。当遇到更深层的满足条件的节点时，替换之前的节点。</p>
-<p>对于非叶子节点，优先遍历左子树，再遍历右子树，因为要寻找的是靠左的节点。</p>
-<p>最后存储的节点即为要求的节点值。</p>
+<h3><span id="我的思路">我的思路</span></h3><p>以层序遍历为框架，用一个整型变量curMax记录当前层的最大值，每遍历一个节点就与该变量比较，存储较大值。</p>
+<p>每遍历完一层，就存储整型变量curMax的值作为这一层的最大值，再使用下一层的第一个节点的值初始化curMax变量。</p>
+<p>使用队列进行层序遍历，每一层之间用空节点作为标记隔开。</p>
 <br>
 
-<h3><span id="我的解法java">我的解法（Java）</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> level = <span class="number">0</span>, value = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findBottomLeftValue</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.value = root.val;</span><br><span class="line">            helper(root, <span class="number">0</span>);</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode root, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (level &gt; <span class="keyword">this</span>.level) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.level = level;</span><br><span class="line">                    <span class="keyword">this</span>.value = root.val;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                helper(root.left, level + <span class="number">1</span>);</span><br><span class="line">                helper(root.right, level + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="我的解法java">我的解法（Java）</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = left;</span></span><br><span class="line"><span class="comment"> *         this.right = right;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">largestValues</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> LinkedList&lt;TreeNode&gt;();</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> list;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> curMax = root.val;</span><br><span class="line">        queue.offer(root);</span><br><span class="line">        queue.offer(<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            TreeNode t = queue.poll();</span><br><span class="line">            <span class="keyword">if</span> (t == <span class="keyword">null</span>) &#123;</span><br><span class="line">                list.add(curMax);</span><br><span class="line">                </span><br><span class="line">                <span class="comment">//新一层的初始化</span></span><br><span class="line">                <span class="keyword">if</span> (!queue.isEmpty()) &#123;</span><br><span class="line">                    curMax = queue.peek().val;</span><br><span class="line">                    queue.offer(<span class="keyword">null</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (t.val &gt; curMax) &#123;</span><br><span class="line">                    curMax = t.val;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (t.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    queue.offer(t.left);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (t.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    queue.offer(t.right);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -270,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/12/02/LeetCode/Tree/513.Find-Bottom-Left-Tree-Value/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/12/02/LeetCode/Tree/515.Find-Largest-Value-in-Each-Tree-Row/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/12/02/LeetCode/Tree/515.Find-Largest-Value-in-Each-Tree-Row/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          515.在每个树行中找最大值
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/24/LeetCode/Tree/508.Most-Frequent-Subtree-Sum/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">508.出现次数最多的子树元素和</div>
+    <a href="/2020/12/02/LeetCode/Tree/513.Find-Bottom-Left-Tree-Value/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">513.找树左下角的值</div>
       <i class="icon-circle-right"></i>
     </a>
   
