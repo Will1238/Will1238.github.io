@@ -167,7 +167,29 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p><a href="https://leetcode-cn.com/problems/binary-tree-tilt/" target="_blank" rel="noopener">563. 二叉树的坡度 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>#TODO</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个二叉树，计算 <strong>整个树</strong> 的坡度 。</p>
+<p>一个树的 <strong>节点的坡度</strong> 定义即为，该节点左子树的节点之和和右子树节点之和的 <strong>差的绝对值</strong> 。如果没有左子树的话，左子树的节点之和为 0 ；没有右子树的话也是一样。空结点的坡度是 0 。</p>
+<p><strong>整个树</strong> 的坡度就是其所有节点的坡度之和。</p>
+<p><strong>示例 1：</strong></p>
+<img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-1.jpg">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [1,2,3]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">节点 2 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 3 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 1 的坡度：|2-3| &#x3D; 1（左子树就是左子节点，所以和是 2 ；右子树就是右子节点，所以和是 3 ）</span><br><span class="line">坡度总和：0 + 0 + 1 &#x3D; 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-2.jpg">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [4,2,9,3,5,null,7]</span><br><span class="line">输出：15</span><br><span class="line">解释：</span><br><span class="line">节点 3 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 5 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 7 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 2 的坡度：|3-5| &#x3D; 2（左子树就是左子节点，所以和是 3 ；右子树就是右子节点，所以和是 5 ）</span><br><span class="line">节点 9 的坡度：|0-7| &#x3D; 7（没有左子树，所以和是 0 ；右子树正好是右子节点，所以和是 7 ）</span><br><span class="line">节点 4 的坡度：|(3+5+2)-(9+7)| &#x3D; |10-16| &#x3D; 6（左子树值为 3、5 和 2 ，和是 10 ；右子树值为 9 和 7 ，和是 16 ）</span><br><span class="line">坡度总和：0 + 0 + 0 + 2 + 7 + 6 &#x3D; 15</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-3.jpg">
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [21,7,14,1,1,2,2,3,3]</span><br><span class="line">输出：9</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li>树中节点数目的范围在 <code>[0, 10^4]</code> 内</li>
+<li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
+</ul>
         
           <a class="article-more-a" href="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/#more">more >></a>
         
