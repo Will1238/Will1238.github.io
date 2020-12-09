@@ -146,6 +146,131 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-construction-of-tensorflow" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/23/construction-of-tensorflow/">Tensorflow环境搭建过程</a>
+    </h1>
+  
+
+        
+        <a href="/2020/04/23/construction-of-tensorflow/" class="archive-article-date">
+  	<time datetime="2020-04-23T09:14:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><!-- toc -->
+
+<ul>
+<li><a href="#准备工作">准备工作</a><ul>
+<li><a href="#anaconda安装">Anaconda安装</a></li>
+<li><a href="#pip和conda镜像源设置">pip和conda镜像源设置</a></li>
+</ul>
+</li>
+<li><a href="#安装tensorflow">安装tensorflow</a></li>
+<li><a href="#在pycharm中使用已创建的环境">在PyCharm中使用已创建的环境</a><ul>
+<li><a href="#为新项目配置已创建的环境">为新项目配置已创建的环境</a></li>
+<li><a href="#为现有项目配置已创建的环境">为现有项目配置已创建的环境</a></li>
+</ul>
+</li>
+<li><a href="#总结">总结</a></li>
+</ul>
+<!-- tocstop -->
+
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h4 id="Anaconda安装"><a href="#Anaconda安装" class="headerlink" title="Anaconda安装"></a>Anaconda安装</h4><ul>
+<li><p>什么是Anaconda？</p>
+<p>Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anaconda致力于简化包管理和部署。Anaconda的包使用软件包管理系统Conda进行管理。（By Wikipedia)</p>
+</li>
+<li><p>安装Anaconda</p>
+<ul>
+<li><p>在<a href="https://www.anaconda.com/" target="_blank" rel="noopener">Anaconda官网</a>下载并安装</p>
+</li>
+<li><p>注意在安装时这一步两个选项都要勾选（第一个选项默认是未勾选的，用于设置环境变量）</p>
+</li>
+</ul>
+<img src="/2020/04/23/construction-of-tensorflow/Anaconda_1.png" style="zoom:80%;">
+
+
+
+</li>
+</ul>
+<ul>
+<li><p>检查环境变量是否正常配置</p>
+<p>打开命令行，输入：</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
+
+<p>  如果环境变量正常，会显示conda版本号：</p>
+  <img src="/2020/04/23/construction-of-tensorflow/Anaconda_2.png" style="zoom:80%;">
+
+<br>
+        
+          <a class="article-more-a" href="/2020/04/23/construction-of-tensorflow/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Tensorflow</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Deep Learning</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Offer/Question-of-QueHun" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
