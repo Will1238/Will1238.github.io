@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>八数码问题：A*算法求解 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[toc] 问题描述 如上图所示，包括一个 3x3 的棋盘，棋盘上有 8 个数字棋子和一 个空格。与空格相邻的棋子可以滑动到空格中。游戏目标是要达到一个特定的状态，如上图中右侧所给出的状态。该问题可形式化如下：   状态：状态描述指明 8 个棋子以及空格在棋盘 9 个方格上的分布。  初始状态：任何状态都可能是初始状态。注意要到达任何一个给定的目标，可能的初始状态中恰好只有一半可以作为开始。  后">
+  <meta name="description" content="目录   问题描述 任务要求    问题描述 如上图所示，包括一个 3x3 的棋盘，棋盘上有 8 个数字棋子和一 个空格。与空格相邻的棋子可以滑动到空格中。游戏目标是要达到一个特定的状态，如上图中右侧所给出的状态。该问题可形式化如下：   状态：状态描述指明 8 个棋子以及空格在棋盘 9 个方格上的分布。  初始状态：任何状态都可能是初始状态。注意要到达任何一个给定的目标，可能的初始状态中恰好只有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="八数码问题：A*算法求解">
 <meta property="og:url" content="http://yoursite.com/2021/05/08/Practice/Eight-Digital-Problem/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="[toc] 问题描述 如上图所示，包括一个 3x3 的棋盘，棋盘上有 8 个数字棋子和一 个空格。与空格相邻的棋子可以滑动到空格中。游戏目标是要达到一个特定的状态，如上图中右侧所给出的状态。该问题可形式化如下：   状态：状态描述指明 8 个棋子以及空格在棋盘 9 个方格上的分布。  初始状态：任何状态都可能是初始状态。注意要到达任何一个给定的目标，可能的初始状态中恰好只有一半可以作为开始。  后">
+<meta property="og:description" content="目录   问题描述 任务要求    问题描述 如上图所示，包括一个 3x3 的棋盘，棋盘上有 8 个数字棋子和一 个空格。与空格相邻的棋子可以滑动到空格中。游戏目标是要达到一个特定的状态，如上图中右侧所给出的状态。该问题可形式化如下：   状态：状态描述指明 8 个棋子以及空格在棋盘 9 个方格上的分布。  初始状态：任何状态都可能是初始状态。注意要到达任何一个给定的目标，可能的初始状态中恰好只有">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://yoursite.com/2021/05/08/Practice/Eight-Digital-Problem/.%5CEight-Digital-Problem%5C1.png">
+<meta property="og:image" content="http://yoursite.com/2021/05/08/Practice/Eight-Digital-Problem/1.png">
 <meta property="article:published_time" content="2021-05-08T06:27:04.000Z">
-<meta property="article:modified_time" content="2021-05-08T07:32:37.981Z">
+<meta property="article:modified_time" content="2021-05-08T07:35:15.645Z">
 <meta property="article:author" content="Will Ling">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="A*">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2021/05/08/Practice/Eight-Digital-Problem/.%5CEight-Digital-Problem%5C1.png">
+<meta name="twitter:image" content="http://yoursite.com/2021/05/08/Practice/Eight-Digital-Problem/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Ling&#39;s Storm" type="application/atom+xml">
   
@@ -173,8 +173,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[toc]</p>
-<h3><span id="问题描述">问题描述</span></h3><p><img src="/2021/05/08/Practice/Eight-Digital-Problem/.%5CEight-Digital-Problem%5C1.png" alt="图1"></p>
+        <h3><span id="目录">目录</span></h3><!-- toc -->
+
+<ul>
+<li><a href="#问题描述">问题描述</a></li>
+<li><a href="#任务要求">任务要求</a></li>
+</ul>
+<!-- tocstop -->
+
+<h3><span id="问题描述">问题描述</span></h3><p><img src="/2021/05/08/Practice/Eight-Digital-Problem/1.png" alt="图1"></p>
 <p>如上图所示，包括一个 3x3 的棋盘，棋盘上有 8 个数字棋子和一 个空格。与空格相邻的棋子可以滑动到空格中。游戏目标是要达到一个特定的状态，如上图中右侧所给出的状态。该问题可形式化如下： </p>
 <ul>
 <li><strong>状态：</strong>状态描述指明 8 个棋子以及空格在棋盘 9 个方格上的分布。 </li>
@@ -310,7 +317,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">任务要求</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">2.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text">任务要求</span></a></li></ol>
                     </div>
                 </span>
             </div>
