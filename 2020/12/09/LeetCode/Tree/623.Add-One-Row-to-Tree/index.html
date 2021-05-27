@@ -171,27 +171,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3><span id="链接">链接</span></h3><p><a href="https://leetcode-cn.com/problems/add-one-row-to-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/add-one-row-to-tree/</a></p>
+        <h3><span id="链接">链接</span></h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/add-one-row-to-tree/">https://leetcode-cn.com/problems/add-one-row-to-tree/</a></p>
 <h3><span id="题目描述">题目描述</span></h3><p>给定一个二叉树，根节点为第1层，深度为 1。在其第 <code>d</code> 层追加一行值为 <code>v</code> 的节点。</p>
 <p>添加规则：给定一个深度值 <code>d</code> （正整数），针对深度为 <code>d-1</code> 层的每一非空节点 <code>N</code>，为 <code>N</code> 创建两个值为 <code>v</code> 的左子树和右子树。</p>
 <p>将 <code>N</code> 原先的左子树，连接为新节点 <code>v</code> 的左子树；将 <code>N</code> 原先的右子树，连接为新节点 <code>v</code> 的右子树。</p>
 <p>如果 <code>d</code> 的值为 1，深度 <code>d-1</code> 不存在，则创建一个新的根节点 <code>v</code>，原先的整棵树将作为 <code>v</code> 的左子树。</p>
 <p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">       4</span><br><span class="line">     &#x2F;   \</span><br><span class="line">    2     6</span><br><span class="line">   &#x2F; \   &#x2F; </span><br><span class="line">  3   1 5   </span><br><span class="line"></span><br><span class="line">v &#x3D; 1</span><br><span class="line">d &#x3D; 2</span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">       4</span><br><span class="line">      &#x2F; \</span><br><span class="line">     1   1</span><br><span class="line">    &#x2F;     \</span><br><span class="line">   2       6</span><br><span class="line">  &#x2F; \     &#x2F; </span><br><span class="line"> 3   1   5</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">       4</span><br><span class="line">     /   \</span><br><span class="line">    2     6</span><br><span class="line">   / \   / </span><br><span class="line">  3   1 5   </span><br><span class="line"></span><br><span class="line">v = 1</span><br><span class="line">d = 2</span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">       4</span><br><span class="line">      / \</span><br><span class="line">     1   1</span><br><span class="line">    /     \</span><br><span class="line">   2       6</span><br><span class="line">  / \     / </span><br><span class="line"> 3   1   5   </span><br></pre></td></tr></table></figure>
 <p><strong>示例 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">      4</span><br><span class="line">     &#x2F;   </span><br><span class="line">    2    </span><br><span class="line">   &#x2F; \   </span><br><span class="line">  3   1    </span><br><span class="line"></span><br><span class="line">v &#x3D; 1</span><br><span class="line">d &#x3D; 3</span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">      4</span><br><span class="line">     &#x2F;   </span><br><span class="line">    2</span><br><span class="line">   &#x2F; \    </span><br><span class="line">  1   1</span><br><span class="line"> &#x2F;     \  </span><br><span class="line">3       1</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">二叉树如下所示:</span><br><span class="line">      4</span><br><span class="line">     /   </span><br><span class="line">    2    </span><br><span class="line">   / \   </span><br><span class="line">  3   1    </span><br><span class="line"></span><br><span class="line">v = 1</span><br><span class="line">d = 3</span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">      4</span><br><span class="line">     /   </span><br><span class="line">    2</span><br><span class="line">   / \    </span><br><span class="line">  1   1</span><br><span class="line"> /     \  </span><br><span class="line">3       1</span><br></pre></td></tr></table></figure>
 <p><strong>注意:</strong></p>
 <ul>
 <li>输入的深度值 d 的范围是：[1，二叉树最大深度 + 1]。</li>
 <li>输入的二叉树至少有一个节点。</li>
 </ul>
-<a id="more"></a>
-
-<br>
-
-
+<span id="more"></span>
+<p>&lt;/br&gt;</p>
 <h3><span id="我的思路">我的思路</span></h3><p>递归法求解：<strong>子问题</strong>可以分为以下几种情况：</p>
 <ul>
 <li>根节点为空，则直接返回<code>null</code></li>
@@ -202,10 +197,8 @@
 </ul>
 </li>
 </ul>
-<br>
-
+<p>&lt;/br&gt;</p>
 <h3><span id="我的解法java">我的解法（Java）</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">addOneRow</span><span class="params">(TreeNode root, <span class="keyword">int</span> v, <span class="keyword">int</span> d)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (d == <span class="number">1</span>) &#123;</span><br><span class="line">            TreeNode t = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">            t.left = root;</span><br><span class="line">            root = t;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (d == <span class="number">2</span>) &#123;</span><br><span class="line">            TreeNode newLeft = <span class="keyword">new</span> TreeNode(v), newRight = <span class="keyword">new</span> TreeNode(v);</span><br><span class="line">            newLeft.left = root.left;</span><br><span class="line">            newRight.right = root.right;</span><br><span class="line">            root.left = newLeft;</span><br><span class="line">            root.right = newRight;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            root.left = addOneRow(root.left, v, d - <span class="number">1</span>);</span><br><span class="line">            root.right = addOneRow(root.right, v, d - <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -476,15 +469,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,7 +513,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,7 +521,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

@@ -171,11 +171,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4><span id="链接">链接</span></h4><p><a href="https://leetcode-cn.com/problems/unique-binary-search-trees-ii" target="_blank" rel="noopener">https://leetcode-cn.com/problems/unique-binary-search-trees-ii</a></p>
+        <h4><span id="链接">链接</span></h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/unique-binary-search-trees-ii">https://leetcode-cn.com/problems/unique-binary-search-trees-ii</a></p>
 <h4><span id="题目描述">题目描述</span></h4><p>给定一个整数 n，生成所有由 1 … n 为节点所组成的 二叉搜索树 。</p>
 <p><strong>示例：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">输入：3</span><br><span class="line">输出：</span><br><span class="line">[</span><br><span class="line">  [1,null,3,2],</span><br><span class="line">  [3,2,null,1],</span><br><span class="line">  [3,1,null,null,2],</span><br><span class="line">  [2,1,3],</span><br><span class="line">  [1,null,2,null,3]</span><br><span class="line">]</span><br><span class="line">解释：</span><br><span class="line">以上的输出对应以下 5 种不同结构的二叉搜索树：</span><br><span class="line"></span><br><span class="line">   1         3     3      2      1</span><br><span class="line">    \       &#x2F;     &#x2F;      &#x2F; \      \</span><br><span class="line">     3     2     1      1   3      2</span><br><span class="line">    &#x2F;     &#x2F;       \                 \</span><br><span class="line">   2     1         2                 3</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">输入：3</span><br><span class="line">输出：</span><br><span class="line">[</span><br><span class="line">  [1,null,3,2],</span><br><span class="line">  [3,2,null,1],</span><br><span class="line">  [3,1,null,null,2],</span><br><span class="line">  [2,1,3],</span><br><span class="line">  [1,null,2,null,3]</span><br><span class="line">]</span><br><span class="line">解释：</span><br><span class="line">以上的输出对应以下 5 种不同结构的二叉搜索树：</span><br><span class="line"></span><br><span class="line">   1         3     3      2      1</span><br><span class="line">    \       /     /      / \      \</span><br><span class="line">     3     2     1      1   3      2</span><br><span class="line">    /     /       \                 \</span><br><span class="line">   2     1         2                 3</span><br></pre></td></tr></table></figure>
 <p><strong>提示：</strong> <code>0 &lt;= n &lt;= 8</code></p>
 <h4><span id="我的思路">我的思路</span></h4><p>和【96.不同的二叉树】的思路有部分相似，并不用考虑1…n为节点所能够构成的二叉搜索树，而是考虑更一般的情况，直接处理a…b为节点所构成的二叉搜索树的情况。</p>
 <p>本题所需的结果是树的集合，通过递归进行处理。创建签名为generateAToB(int a, int b)的函数，作用是返回a~b之间所有节点所组成的二叉搜索树所有情况的集合。</p>
@@ -187,19 +186,15 @@
 <li>通过循环对左子树和右子树进行组合，并将每种组合的情况依次存入新的集合中</li>
 <li>返回新的集合</li>
 </ul>
-<a id="more"></a>
-
+<span id="more"></span>
 <p>generateAToB函数中需要注意的两个问题：</p>
 <ul>
 <li>处理左子树或右子树为空（无节点）的情况，即<code>a == i</code>或<code>b == i</code>。为方便生成，该种情况我选择返回包含一个元素且该元素为<code>null</code>的List</li>
 <li>处理左子树或右子树仅有一个节点的情况，即<code>a == i+1</code>或<code>b == i-1</code>。这种情况也可以不处理，为了减少生成时间，我选择直接返回包含一个元素且该元素为a或b的List</li>
 </ul>
 <p>同时注意，如果选择子树为空时返回包含一个<code>null</code>元素的List，则对于n为0的情况要特殊处理（返回空List），否则与题目不一致。</p>
-<br>
-
+<p>&lt;/br&gt;</p>
 <h4><span id="我的解法java">我的解法（Java）</span></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = left;</span></span><br><span class="line"><span class="comment"> *         this.right = right;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">generateTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        List&lt;TreeNode&gt; list;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">            list = <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            list = generateAToB(<span class="number">1</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> List&lt;TreeNode&gt; <span class="title">generateAToB</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">        List&lt;TreeNode&gt; list = <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</span><br><span class="line">        <span class="keyword">if</span> (a &gt; b) &#123;</span><br><span class="line">            list.add(<span class="keyword">null</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (a == b) &#123;</span><br><span class="line">            list.add(<span class="keyword">new</span> TreeNode(a));</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = a; i &lt;= b; i++) &#123;</span><br><span class="line">                List&lt;TreeNode&gt; listLeft = generateAToB(a, i-<span class="number">1</span>);</span><br><span class="line">                List&lt;TreeNode&gt; listRight = generateAToB(i+<span class="number">1</span>, b);</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> left = <span class="number">0</span>; left &lt; listLeft.size(); left++) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> right = <span class="number">0</span>; right &lt; listRight.size(); right++) &#123;</span><br><span class="line">                        TreeNode root = <span class="keyword">new</span> TreeNode(i);</span><br><span class="line">                        root.left = listLeft.get(left);</span><br><span class="line">                        root.right = listRight.get(right);</span><br><span class="line">                        list.add(root);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;            </span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 
       
 
@@ -470,15 +465,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -514,7 +509,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,7 +517,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

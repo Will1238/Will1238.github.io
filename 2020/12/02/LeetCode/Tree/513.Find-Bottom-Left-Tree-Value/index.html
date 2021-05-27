@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>513.找树左下角的值 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="链接513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，在树的最后一行找到最左边的值。 示例 1: 12345678输入:  2 &#x2F; \1   3输出:1  示例 2: 123456789101112输入:    1   &#x2F; \  2   3 &#x2F;   &#x2F; \4   5   6   &#x2F;">
+  <meta name="description" content="链接513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，在树的最后一行找到最左边的值。 示例 1: 12345678输入:  2 &#x2F; \1   3输出:1 示例 2: 123456789101112输入:    1   &#x2F; \  2   3 &#x2F;   &#x2F; \4   5   6   &#x2F;  7输出:7 注意: 您可以假设树（即给定的根节点）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="513.找树左下角的值">
 <meta property="og:url" content="http://yoursite.com/2020/12/02/LeetCode/Tree/513.Find-Bottom-Left-Tree-Value/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="链接513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，在树的最后一行找到最左边的值。 示例 1: 12345678输入:  2 &#x2F; \1   3输出:1  示例 2: 123456789101112输入:    1   &#x2F; \  2   3 &#x2F;   &#x2F; \4   5   6   &#x2F;">
+<meta property="og:description" content="链接513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，在树的最后一行找到最左边的值。 示例 1: 12345678输入:  2 &#x2F; \1   3输出:1 示例 2: 123456789101112输入:    1   &#x2F; \  2   3 &#x2F;   &#x2F; \4   5   6   &#x2F;  7输出:7 注意: 您可以假设树（即给定的根节点）">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-02T12:50:15.000Z">
 <meta property="article:modified_time" content="2020-12-02T12:58:44.849Z">
@@ -171,28 +171,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3><span id="链接">链接</span></h3><p><a href="https://leetcode-cn.com/problems/find-bottom-left-tree-value/" target="_blank" rel="noopener">513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+        <h3><span id="链接">链接</span></h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-bottom-left-tree-value/">513. 找树左下角的值 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
 <h3><span id="题目描述">题目描述</span></h3><p>给定一个二叉树，在树的最后一行找到最左边的值。</p>
 <p><strong>示例 1:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">  2</span><br><span class="line"> &#x2F; \</span><br><span class="line">1   3</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">  2</span><br><span class="line"> / \</span><br><span class="line">1   3</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
 <p><strong>示例 2:</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">    1</span><br><span class="line">   &#x2F; \</span><br><span class="line">  2   3</span><br><span class="line"> &#x2F;   &#x2F; \</span><br><span class="line">4   5   6</span><br><span class="line">   &#x2F;</span><br><span class="line">  7</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line"></span><br><span class="line">    1</span><br><span class="line">   / \</span><br><span class="line">  2   3</span><br><span class="line"> /   / \</span><br><span class="line">4   5   6</span><br><span class="line">   /</span><br><span class="line">  7</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
 <p><strong>注意:</strong> 您可以假设树（即给定的根节点）不为 NULL。</p>
-<a id="more"></a>
-
-<br>
-
-
+<span id="more"></span>
+<p>&lt;/br&gt;</p>
 <h3><span id="我的思路">我的思路</span></h3><p>重点是明确题设条件，要寻找的节点必然是叶子节点（没有子节点），并且处于最下层的最左边。</p>
 <p>对于叶子节点，可以先记录其值与所在层数。当遇到更深层的满足条件的节点时，替换之前的节点。</p>
 <p>对于非叶子节点，优先遍历左子树，再遍历右子树，因为要寻找的是靠左的节点。</p>
 <p>最后存储的节点即为要求的节点值。</p>
-<br>
-
+<p>&lt;/br&gt;</p>
 <h3><span id="我的解法java">我的解法（Java）</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> level = <span class="number">0</span>, value = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findBottomLeftValue</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">this</span>.value = root.val;</span><br><span class="line">            helper(root, <span class="number">0</span>);</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">helper</span><span class="params">(TreeNode root, <span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">if</span> (level &gt; <span class="keyword">this</span>.level) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.level = level;</span><br><span class="line">                    <span class="keyword">this</span>.value = root.val;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                helper(root.left, level + <span class="number">1</span>);</span><br><span class="line">                helper(root.right, level + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -463,15 +456,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -507,7 +500,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,7 +508,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3><span id="链接">链接</span></h3><p><a href="https://leetcode-cn.com/problems/maximum-binary-tree/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/maximum-binary-tree/</a></p>
+        <h3><span id="链接">链接</span></h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-binary-tree/">https://leetcode-cn.com/problems/maximum-binary-tree/</a></p>
 <h3><span id="题目描述">题目描述</span></h3><p>给定一个不含重复元素的整数数组。一个以此数组构建的最大二叉树定义如下：</p>
 <ol>
 <li>二叉树的根是数组中的最大元素。</li>
@@ -180,22 +180,16 @@
 </ol>
 <p>通过给定的数组构建最大二叉树，并且输出这个树的根节点。</p>
 <p><strong>示例 ：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：[3,2,1,6,0,5]</span><br><span class="line">输出：返回下面这棵树的根节点：</span><br><span class="line"></span><br><span class="line">      6</span><br><span class="line">    &#x2F;   \</span><br><span class="line">   3     5</span><br><span class="line">    \    &#x2F; </span><br><span class="line">     2  0   </span><br><span class="line">       \</span><br><span class="line">        1</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：[3,2,1,6,0,5]</span><br><span class="line">输出：返回下面这棵树的根节点：</span><br><span class="line"></span><br><span class="line">      6</span><br><span class="line">    /   \</span><br><span class="line">   3     5</span><br><span class="line">    \    / </span><br><span class="line">     2  0   </span><br><span class="line">       \</span><br><span class="line">        1</span><br></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
 <ul>
 <li>给定的数组的大小在 [1, 1000] 之间。</li>
 </ul>
-<a id="more"></a>
-
-<br>
-
-
+<span id="more"></span>
+<p>&lt;/br&gt;</p>
 <h3><span id="我的思路">我的思路</span></h3><p>以递归为框架，当确定根节点在数组中位置时，实际上将数组分为了左右两部分，对应左右子树，同时也是两个同类子问题，可以按照同样的方法再确定子树中根节点的位置，继续向下递归，分为新的子问题，直到将数组分割完毕，即到达了树的叶子节点。</p>
-<br>
-
+<p>&lt;/br&gt;</p>
 <h3><span id="我的解法java">我的解法（Java）</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">constructMaximumBinaryTree</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> TreeNode <span class="title">helper</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (start &gt; end) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (start == end) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> TreeNode(nums[start]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> rootIndex = start;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = start + <span class="number">1</span>; i &lt;= end; i++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (nums[i] &gt; nums[rootIndex]) &#123;</span><br><span class="line">                    rootIndex = i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            TreeNode root = <span class="keyword">new</span> TreeNode(nums[rootIndex]);</span><br><span class="line">            root.left = helper(nums, start, rootIndex - <span class="number">1</span>);</span><br><span class="line">            root.right = helper(nums, rootIndex + <span class="number">1</span>, end);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> root;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -466,15 +460,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,7 +504,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +512,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>19.删除链表的倒数第N个节点 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;remove-nth-node-from-end-of-list&#x2F; 题目描述给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。 示例： 123给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n &#x3D; 2.当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.">
+  <meta name="description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;remove-nth-node-from-end-of-list&#x2F; 题目描述给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。 示例： 123给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n &#x3D; 2.当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5. 说明：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="19.删除链表的倒数第N个节点">
 <meta property="og:url" content="http://yoursite.com/2020/09/15/LeetCode/LinkedList/19.Remove-Nth-Node-From-End-of-List/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;remove-nth-node-from-end-of-list&#x2F; 题目描述给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。 示例： 123给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n &#x3D; 2.当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.">
+<meta property="og:description" content="链接https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;remove-nth-node-from-end-of-list&#x2F; 题目描述给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。 示例： 123给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n &#x3D; 2.当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5. 说明：">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-15T08:00:59.000Z">
 <meta property="article:modified_time" content="2020-09-15T08:11:36.238Z">
@@ -171,25 +171,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3><span id="链接">链接</span></h3><p><a href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/</a></p>
+        <h3><span id="链接">链接</span></h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/">https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/</a></p>
 <h3><span id="题目描述">题目描述</span></h3><p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
 <p><strong>示例：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n &#x3D; 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</span><br><span class="line"></span><br><span class="line">当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</span><br></pre></td></tr></table></figure>
 <p><strong>说明：</strong></p>
 <p>给定的 n 保证是有效的。</p>
 <p><strong>进阶：</strong></p>
 <p>你能尝试使用一趟扫描实现吗？</p>
-<a id="more"></a>
-
-<br>
-
-
+<span id="more"></span>
+<p>&lt;/br&gt;</p>
 <h3><span id="我的思路">我的思路</span></h3><p>想通过一趟扫描实现，显然可以通过双指针实现。定义两个指针<code>pre</code>和<code>post</code>，由于题目保证<code>n</code>有效，因此通过循环让指针<code>pre</code>处于指针<code>post</code>前面第<code>n-1</code>个节点处。再通过循环让两个指针同步前进，当指针<code>pre</code>指向链表末尾时，指针<code>post</code>就指向要删除节点的前一个节点，通过<code>post.next = post.next.next</code>即可完成删除操作。需要注意的是，当删除的节点是链表的第一个节点时，指针<code>pre</code>会指向<code>null</code>，对于这种特殊情况直接让<code>head = head.next</code>即可。</p>
-<br>
-
+<p>&lt;/br&gt;</p>
 <h3><span id="我的解法java">我的解法（Java）</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">removeNthFromEnd</span><span class="params">(ListNode head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode pre = head, post = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            pre = pre.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (pre != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (pre.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                pre = pre.next;</span><br><span class="line">                post = post.next;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            post.next = post.next.next;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            head = head.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -460,15 +454,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,7 +498,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,7 +506,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Tensorflow环境搭建过程 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录   准备工作 Anaconda安装 pip和conda镜像源设置   安装tensorflow 在PyCharm中使用已创建的环境 为新项目配置已创建的环境 为现有项目配置已创建的环境   总结    准备工作Anaconda安装 什么是Anaconda？ Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anacond">
+  <meta name="description" content="目录  准备工作 Anaconda安装 pip和conda镜像源设置   安装tensorflow 在PyCharm中使用已创建的环境 为新项目配置已创建的环境 为现有项目配置已创建的环境   总结   准备工作Anaconda安装 什么是Anaconda？ Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anaconda致">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tensorflow环境搭建过程">
 <meta property="og:url" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="目录   准备工作 Anaconda安装 pip和conda镜像源设置   安装tensorflow 在PyCharm中使用已创建的环境 为新项目配置已创建的环境 为现有项目配置已创建的环境   总结    准备工作Anaconda安装 什么是Anaconda？ Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anacond">
+<meta property="og:description" content="目录  准备工作 Anaconda安装 pip和conda镜像源设置   安装tensorflow 在PyCharm中使用已创建的环境 为新项目配置已创建的环境 为现有项目配置已创建的环境   总结   准备工作Anaconda安装 什么是Anaconda？ Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anaconda致">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/Anaconda_1.png">
 <meta property="og:image" content="http://yoursite.com/2020/04/23/construction-of-tensorflow/Anaconda_2.png">
@@ -184,96 +184,86 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3><span id="目录">目录</span></h3><!-- toc -->
-
 <ul>
-<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</a><ul>
-<li><a href="#anaconda%E5%AE%89%E8%A3%85">Anaconda安装</a></li>
-<li><a href="#pip%E5%92%8Cconda%E9%95%9C%E5%83%8F%E6%BA%90%E8%AE%BE%E7%BD%AE">pip和conda镜像源设置</a></li>
+<li><a href="#准备工作">准备工作</a><ul>
+<li><a href="#anaconda安装">Anaconda安装</a></li>
+<li><a href="#pip和conda镜像源设置">pip和conda镜像源设置</a></li>
 </ul>
 </li>
-<li><a href="#%E5%AE%89%E8%A3%85tensorflow">安装tensorflow</a></li>
-<li><a href="#%E5%9C%A8pycharm%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%B7%B2%E5%88%9B%E5%BB%BA%E7%9A%84%E7%8E%AF%E5%A2%83">在PyCharm中使用已创建的环境</a><ul>
-<li><a href="#%E4%B8%BA%E6%96%B0%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E5%B7%B2%E5%88%9B%E5%BB%BA%E7%9A%84%E7%8E%AF%E5%A2%83">为新项目配置已创建的环境</a></li>
-<li><a href="#%E4%B8%BA%E7%8E%B0%E6%9C%89%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE%E5%B7%B2%E5%88%9B%E5%BB%BA%E7%9A%84%E7%8E%AF%E5%A2%83">为现有项目配置已创建的环境</a></li>
+<li><a href="#安装tensorflow">安装tensorflow</a></li>
+<li><a href="#在pycharm中使用已创建的环境">在PyCharm中使用已创建的环境</a><ul>
+<li><a href="#为新项目配置已创建的环境">为新项目配置已创建的环境</a></li>
+<li><a href="#为现有项目配置已创建的环境">为现有项目配置已创建的环境</a></li>
 </ul>
 </li>
-<li><a href="#%E6%80%BB%E7%BB%93">总结</a></li>
+<li><a href="#总结">总结</a></li>
 </ul>
 <!-- tocstop -->
-
 <h3><span id="准备工作">准备工作</span></h3><h4><span id="anaconda安装">Anaconda安装</span></h4><ul>
 <li><p>什么是Anaconda？</p>
 <p>Anaconda是一个免费开源的Python和R语言的发行版本，用于计算科学（数据科学、机器学习、大数据处理和预测分析），Anaconda致力于简化包管理和部署。Anaconda的包使用软件包管理系统Conda进行管理。（By Wikipedia)</p>
 </li>
 <li><p>安装Anaconda</p>
 <ul>
-<li><p>在<a href="https://www.anaconda.com/" target="_blank" rel="noopener">Anaconda官网</a>下载并安装</p>
+<li><p>在<a target="_blank" rel="noopener" href="https://www.anaconda.com/">Anaconda官网</a>下载并安装</p>
 </li>
 <li><p>注意在安装时这一步两个选项都要勾选（第一个选项默认是未勾选的，用于设置环境变量）</p>
 </li>
 </ul>
-<img src="/2020/04/23/construction-of-tensorflow/Anaconda_1.png" style="zoom:80%;"></li>
+<p><img src="/2020/04/23/construction-of-tensorflow/Anaconda_1.png" style="zoom:80%;"></p>
+</li>
+</ul>
+<ul>
 <li><p>检查环境变量是否正常配置</p>
 <p>打开命令行，输入：</p>
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
-
 <p>  如果环境变量正常，会显示conda版本号：</p>
-  <img src="/2020/04/23/construction-of-tensorflow/Anaconda_2.png" style="zoom:80%;">
-
-<br>
-
-<a id="more"></a>
-
-<br>
-
+<p>  <img src="/2020/04/23/construction-of-tensorflow/Anaconda_2.png" style="zoom:80%;"></p>
+<p>&lt;/br&gt;</p>
+<span id="more"></span>
+<p>&lt;/br&gt;</p>
 <h4><span id="pip和conda镜像源设置">pip和conda镜像源设置</span></h4><ul>
 <li><p>修改镜像源的原因</p>
 <p> pip和conda默认国外镜像源，在安装目标包时非常慢，因此建议修改镜像源为国内。常用的国内镜像有：</p>
 <ul>
-<li>阿里云 <a href="http://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">http://mirrors.aliyun.com/pypi/simple/</a></li>
-<li>豆瓣 <a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a></li>
-<li>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
-<li>中国科学技术大学 <a href="http://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
-<li>华中科技大学 <a href="http://pypi.hustunique.com/" target="_blank" rel="noopener">http://pypi.hustunique.com/</a></li>
+<li>阿里云 <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/pypi/simple/">http://mirrors.aliyun.com/pypi/simple/</a></li>
+<li>豆瓣 <a target="_blank" rel="noopener" href="http://pypi.douban.com/simple/">http://pypi.douban.com/simple/</a></li>
+<li>清华大学 <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple/">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
+<li>中国科学技术大学 <a target="_blank" rel="noopener" href="http://pypi.mirrors.ustc.edu.cn/simple/">http://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+<li>华中科技大学 <a target="_blank" rel="noopener" href="http://pypi.hustunique.com/">http://pypi.hustunique.com/</a></li>
 </ul>
 </li>
 <li><p>修改pip镜像源</p>
 <ul>
 <li><p>在 C:\Users\XX(用户名)\ 目录下新建文件夹pip，然后在pip文件夹中新建文件pip.ini</p>
- <img src="/2020/04/23/construction-of-tensorflow/pip_1.png" style="zoom: 80%;"></li>
+<p> <img src="/2020/04/23/construction-of-tensorflow/pip_1.png" style="zoom: 80%;"></p>
+</li>
 <li><p>在pip.ini中输入：</p>
 </li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.mirrors.ustc.edu.cn&#x2F;simple&#x2F;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = https://pypi.mirrors.ustc.edu.cn/simple/</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>修改conda镜像源</p>
 <p> 在命令行中输入：</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;anaconda&#x2F;pkgs&#x2F;free&#x2F;</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
-
-
-
-<p><br><br><br><br></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+<p>&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;</p>
 <h3><span id="安装tensorflow">安装tensorflow</span></h3><ul>
 <li><p>创建tensorflow环境</p>
 <p>在Anaconda Prompt中输入：</p>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name tensorflow python&#x3D;3.6</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda create --name tensorflow python=3.6</span><br></pre></td></tr></table></figure>
 <p>  以建立一个新环境，此处我选择的python版本是3.6</p>
 <p>  输入<code>conda info --envs</code>可以显示当前已经安装的环境：</p>
-  <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_1.png" style="zoom:80%;">
-
+<p>  <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_1.png" style="zoom:80%;"></p>
 <p>  输入<code>activate tensorflow</code>激活刚刚创建的环境：</p>
-  <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_2.png" style="zoom:80%;">
-
+<p>  <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_2.png" style="zoom:80%;"></p>
 <p>  如图则表示激活成功。</p>
 <p>  输入<code>deactivate tensorflow</code>退出当前环境。</p>
 <ul>
@@ -282,43 +272,34 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activate tensorflow</span><br></pre></td></tr></table></figure>
 <ul>
 <li>输入以下命令安装tensorflow</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure>
 <p>  遇到y/n的询问时输入y即可。</p>
 <ul>
 <li>输入命令检测是否安装成功</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip show tensorflow</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip show tensorflow</span><br></pre></td></tr></table></figure>
 <p>   如果安装成功，会显示tensorflow版本号与相关信息：</p>
-   <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_3.png" style="zoom:80%;">
-
-<p><br><br><br><br></p>
+<p>   <img src="/2020/04/23/construction-of-tensorflow/Tensorflow_3.png" style="zoom:80%;"></p>
+<p>&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;&lt;/br&gt;</p>
 <h3><span id="在pycharm中使用已创建的环境">在PyCharm中使用已创建的环境</span></h3><div id="new_Project"></div>
 
 <h4><span id="为新项目配置已创建的环境">为新项目配置已创建的环境</span></h4><p>创建新项目：</p>
-<img src="/2020/04/23/construction-of-tensorflow/PyCharm_1.png" style="zoom: 67%;">
-
+<p><img src="/2020/04/23/construction-of-tensorflow/PyCharm_1.png" style="zoom: 67%;"></p>
 <p>选择Project Interpreter =&gt; Existing interpreter，如下图所示：</p>
-<img src="/2020/04/23/construction-of-tensorflow/PyCharm_2.png" style="zoom: 67%;">
-
+<p><img src="/2020/04/23/construction-of-tensorflow/PyCharm_2.png" style="zoom: 67%;"></p>
 <p>在左侧选择Conda Environment，在Interpreter中选择之前创建的tensorflow环境中的python编译器的路径（应当在安装Anaconda的目录下的envs文件夹下的tensorflow文件夹中）：</p>
-<img src="/2020/04/23/construction-of-tensorflow/PyCharm_3.png" style="zoom: 67%;">
-
+<p><img src="/2020/04/23/construction-of-tensorflow/PyCharm_3.png" style="zoom: 67%;"></p>
 <p>选择确定即可成功新建项目。</p>
 <h4><span id="为现有项目配置已创建的环境">为现有项目配置已创建的环境</span></h4><p>打开现有项目，选择 文件（File）=&gt; 设置（Settings），在左侧选择 当前项目（Project）=&gt; Project Interpreter</p>
-<img src="/2020/04/23/construction-of-tensorflow/PyCharm_4.png" style="zoom: 67%;">
-
+<p><img src="/2020/04/23/construction-of-tensorflow/PyCharm_4.png" style="zoom: 67%;"></p>
 <p>点击右侧的齿轮，选择Add</p>
-<p><img src="/2020/04/23/construction-of-tensorflow/PyCharm_5.png"></p>
+<p><img src="/2020/04/23/construction-of-tensorflow/PyCharm_5.png" alt></p>
 <p>后续步骤与<a href="#new_Project">为新项目配置已有环境</a>相同。</p>
-<br>
-
+<p>&lt;/br&gt;</p>
 <h3><span id="总结">总结</span></h3><p>由于相关课题，因此需要运行一个基于tensorflow平台的项目。搭建环境过程相对比较顺利，但运行项目过程中，出现了不少相关包缺少的错误。有些是环境中缺少的包，通过pip安装即可；有些是环境冲突的包，当前环境中可能安装了多个包，无法正确导入，可以先卸载所有相关包再安装新版本。</p>
 <p>本次安装是基于CPU版本的tensorflow进行的，如果需要使用GPU加速，则需要安装tensorflow-gpu和CUDA以及cudnn。</p>
 
@@ -591,15 +572,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -635,7 +616,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -643,7 +624,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>559.N叉树的最大深度 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="链接559. N 叉树的最大深度 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个 N 叉树，找到其最大深度。 最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。 N 叉树输入按层序遍历序列化表示，每组子节点由空值分隔（请参见示例）。 示例 1：   12输入：root &#x3D; [1,null,3,2,4,null,5,6]输出：3  示例 2：">
+  <meta name="description" content="链接559. N 叉树的最大深度 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个 N 叉树，找到其最大深度。 最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。 N 叉树输入按层序遍历序列化表示，每组子节点由空值分隔（请参见示例）。 示例 1：  12输入：root &#x3D; [1,null,3,2,4,null,5,6]输出：3 示例 2：  12输入：ro">
 <meta property="og:type" content="article">
 <meta property="og:title" content="559.N叉树的最大深度">
 <meta property="og:url" content="http://yoursite.com/2020/12/06/LeetCode/Tree/559.Maximum-Depth-of-N-ary-Tree/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="链接559. N 叉树的最大深度 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个 N 叉树，找到其最大深度。 最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。 N 叉树输入按层序遍历序列化表示，每组子节点由空值分隔（请参见示例）。 示例 1：   12输入：root &#x3D; [1,null,3,2,4,null,5,6]输出：3  示例 2：">
+<meta property="og:description" content="链接559. N 叉树的最大深度 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个 N 叉树，找到其最大深度。 最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。 N 叉树输入按层序遍历序列化表示，每组子节点由空值分隔（请参见示例）。 示例 1：  12输入：root &#x3D; [1,null,3,2,4,null,5,6]输出：3 示例 2：  12输入：ro">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/12/06/LeetCode/Tree/559.Maximum-Depth-of-N-ary-Tree/559-1.png">
 <meta property="og:image" content="http://yoursite.com/2020/12/06/LeetCode/Tree/559.Maximum-Depth-of-N-ary-Tree/559-2.png">
@@ -174,35 +174,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3><span id="链接">链接</span></h3><p><a href="https://leetcode-cn.com/problems/maximum-depth-of-n-ary-tree/" target="_blank" rel="noopener">559. N 叉树的最大深度 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+        <h3><span id="链接">链接</span></h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/maximum-depth-of-n-ary-tree/">559. N 叉树的最大深度 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
 <h3><span id="题目描述">题目描述</span></h3><p>给定一个 N 叉树，找到其最大深度。</p>
 <p>最大深度是指从根节点到最远叶子节点的最长路径上的节点总数。</p>
 <p>N 叉树输入按层序遍历序列化表示，每组子节点由空值分隔（请参见示例）。</p>
 <p><strong>示例 1：</strong></p>
-<img src="/2020/12/06/LeetCode/Tree/559.Maximum-Depth-of-N-ary-Tree/559-1.png">
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [1,null,3,2,4,null,5,6]</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
-
+<p><img src="/2020/12/06/LeetCode/Tree/559.Maximum-Depth-of-N-ary-Tree/559-1.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,null,3,2,4,null,5,6]</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
 <p><strong>示例 2：</strong></p>
-<img src="/2020/12/06/LeetCode/Tree/559.Maximum-Depth-of-N-ary-Tree/559-2.png">
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]</span><br><span class="line">输出：5</span><br></pre></td></tr></table></figure>
-
+<p><img src="/2020/12/06/LeetCode/Tree/559.Maximum-Depth-of-N-ary-Tree/559-2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,null,2,3,4,5,null,null,6,7,null,8,null,9,10,null,null,11,null,12,null,13,null,null,14]</span><br><span class="line">输出：5</span><br></pre></td></tr></table></figure>
 <p>提示：</p>
 <ul>
 <li>树的深度不会超过 <code>1000</code> 。</li>
 <li>树的节点数目位于<code>[0, 10^4]</code>之间。</li>
 </ul>
-<a id="more"></a>
-
-<br>
-
-
+<span id="more"></span>
+<p>&lt;/br&gt;</p>
 <h3><span id="我的思路">我的思路</span></h3><p>就是对求二叉树深度的扩展，直接看代码即可。</p>
-<br>
-
+<p>&lt;/br&gt;</p>
 <h3><span id="我的解法java">我的解法（Java）</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">// Definition for a Node.</span></span><br><span class="line"><span class="comment">class Node &#123;</span></span><br><span class="line"><span class="comment">    public int val;</span></span><br><span class="line"><span class="comment">    public List&lt;Node&gt; children;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node() &#123;&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node(int _val) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    public Node(int _val, List&lt;Node&gt; _children) &#123;</span></span><br><span class="line"><span class="comment">        val = _val;</span></span><br><span class="line"><span class="comment">        children = _children;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">maxDepth</span><span class="params">(Node root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> maxChildrenDepth = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (Node r : root.children) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = maxDepth(r);</span><br><span class="line">            maxChildrenDepth = Math.max(maxChildrenDepth, temp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxChildrenDepth + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -473,15 +464,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,7 +508,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,7 +516,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>563.二叉树的坡度 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="链接563. 二叉树的坡度 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，计算 整个树 的坡度 。 一个树的 节点的坡度 定义即为，该节点左子树的节点之和和右子树节点之和的 差的绝对值 。如果没有左子树的话，左子树的节点之和为 0 ；没有右子树的话也是一样。空结点的坡度是 0 。 整个树 的坡度就是其所有节点的坡度之和。 示例 1：   1234567输">
+  <meta name="description" content="链接563. 二叉树的坡度 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，计算 整个树 的坡度 。 一个树的 节点的坡度 定义即为，该节点左子树的节点之和和右子树节点之和的 差的绝对值 。如果没有左子树的话，左子树的节点之和为 0 ；没有右子树的话也是一样。空结点的坡度是 0 。 整个树 的坡度就是其所有节点的坡度之和。 示例 1：  1234567输入">
 <meta property="og:type" content="article">
 <meta property="og:title" content="563.二叉树的坡度">
 <meta property="og:url" content="http://yoursite.com/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="链接563. 二叉树的坡度 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，计算 整个树 的坡度 。 一个树的 节点的坡度 定义即为，该节点左子树的节点之和和右子树节点之和的 差的绝对值 。如果没有左子树的话，左子树的节点之和为 0 ；没有右子树的话也是一样。空结点的坡度是 0 。 整个树 的坡度就是其所有节点的坡度之和。 示例 1：   1234567输">
+<meta property="og:description" content="链接563. 二叉树的坡度 - 力扣（LeetCode） (leetcode-cn.com) 题目描述给定一个二叉树，计算 整个树 的坡度 。 一个树的 节点的坡度 定义即为，该节点左子树的节点之和和右子树节点之和的 差的绝对值 。如果没有左子树的话，左子树的节点之和为 0 ；没有右子树的话也是一样。空结点的坡度是 0 。 整个树 的坡度就是其所有节点的坡度之和。 示例 1：  1234567输入">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://yoursite.com/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-2.jpg">
@@ -175,37 +175,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3><span id="链接">链接</span></h3><p><a href="https://leetcode-cn.com/problems/binary-tree-tilt/" target="_blank" rel="noopener">563. 二叉树的坡度 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
+        <h3><span id="链接">链接</span></h3><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-tree-tilt/">563. 二叉树的坡度 - 力扣（LeetCode） (leetcode-cn.com)</a></p>
 <h3><span id="题目描述">题目描述</span></h3><p>给定一个二叉树，计算 <strong>整个树</strong> 的坡度 。</p>
 <p>一个树的 <strong>节点的坡度</strong> 定义即为，该节点左子树的节点之和和右子树节点之和的 <strong>差的绝对值</strong> 。如果没有左子树的话，左子树的节点之和为 0 ；没有右子树的话也是一样。空结点的坡度是 0 。</p>
 <p><strong>整个树</strong> 的坡度就是其所有节点的坡度之和。</p>
 <p><strong>示例 1：</strong></p>
-<img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-1.jpg">
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [1,2,3]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">节点 2 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 3 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 1 的坡度：|2-3| &#x3D; 1（左子树就是左子节点，所以和是 2 ；右子树就是右子节点，所以和是 3 ）</span><br><span class="line">坡度总和：0 + 0 + 1 &#x3D; 1</span><br></pre></td></tr></table></figure>
-
+<p><img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-1.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,2,3]</span><br><span class="line">输出：1</span><br><span class="line">解释：</span><br><span class="line">节点 2 的坡度：|0-0| = 0（没有子节点）</span><br><span class="line">节点 3 的坡度：|0-0| = 0（没有子节点）</span><br><span class="line">节点 1 的坡度：|2-3| = 1（左子树就是左子节点，所以和是 2 ；右子树就是右子节点，所以和是 3 ）</span><br><span class="line">坡度总和：0 + 0 + 1 = 1</span><br></pre></td></tr></table></figure>
 <p><strong>示例 2：</strong></p>
-<img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-2.jpg">
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [4,2,9,3,5,null,7]</span><br><span class="line">输出：15</span><br><span class="line">解释：</span><br><span class="line">节点 3 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 5 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 7 的坡度：|0-0| &#x3D; 0（没有子节点）</span><br><span class="line">节点 2 的坡度：|3-5| &#x3D; 2（左子树就是左子节点，所以和是 3 ；右子树就是右子节点，所以和是 5 ）</span><br><span class="line">节点 9 的坡度：|0-7| &#x3D; 7（没有左子树，所以和是 0 ；右子树正好是右子节点，所以和是 7 ）</span><br><span class="line">节点 4 的坡度：|(3+5+2)-(9+7)| &#x3D; |10-16| &#x3D; 6（左子树值为 3、5 和 2 ，和是 10 ；右子树值为 9 和 7 ，和是 16 ）</span><br><span class="line">坡度总和：0 + 0 + 0 + 2 + 7 + 6 &#x3D; 15</span><br></pre></td></tr></table></figure>
-
+<p><img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-2.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [4,2,9,3,5,null,7]</span><br><span class="line">输出：15</span><br><span class="line">解释：</span><br><span class="line">节点 3 的坡度：|0-0| = 0（没有子节点）</span><br><span class="line">节点 5 的坡度：|0-0| = 0（没有子节点）</span><br><span class="line">节点 7 的坡度：|0-0| = 0（没有子节点）</span><br><span class="line">节点 2 的坡度：|3-5| = 2（左子树就是左子节点，所以和是 3 ；右子树就是右子节点，所以和是 5 ）</span><br><span class="line">节点 9 的坡度：|0-7| = 7（没有左子树，所以和是 0 ；右子树正好是右子节点，所以和是 7 ）</span><br><span class="line">节点 4 的坡度：|(3+5+2)-(9+7)| = |10-16| = 6（左子树值为 3、5 和 2 ，和是 10 ；右子树值为 9 和 7 ，和是 16 ）</span><br><span class="line">坡度总和：0 + 0 + 0 + 2 + 7 + 6 = 15</span><br></pre></td></tr></table></figure>
 <p><strong>示例 3：</strong></p>
-<img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-3.jpg">
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root &#x3D; [21,7,14,1,1,2,2,3,3]</span><br><span class="line">输出：9</span><br></pre></td></tr></table></figure>
-
+<p><img src="/2020/12/07/LeetCode/Tree/563.Binary-Tree-Tilt/563-3.jpg"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [21,7,14,1,1,2,2,3,3]</span><br><span class="line">输出：9</span><br></pre></td></tr></table></figure>
 <p><strong>提示：</strong></p>
 <ul>
 <li>树中节点数目的范围在 <code>[0, 10^4]</code> 内</li>
 <li><code>-1000 &lt;= Node.val &lt;= 1000</code></li>
 </ul>
-<a id="more"></a>
-
-<br>
-
+<span id="more"></span>
+<p>&lt;/br&gt;</p>
 <h3><span id="我的思路">我的思路</span></h3><p>通过辅助函数计算左右子树的节点值之和，求其差的绝对值，即坡度。将此过程递归地对整棵树进行，通过一个变量存储全部节点的坡度。</p>
-<br>
-
+<p>&lt;/br&gt;</p>
 <h3><span id="我的解法java">我的解法（Java）</span></h3><h4><span id="初始版本">初始版本</span></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = left;</span></span><br><span class="line"><span class="comment"> *         this.right = right;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> treeTilt = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findTilt</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        helper(root);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> treeTilt;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">helper</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = helper(root.left);</span><br><span class="line">        <span class="keyword">int</span> right = helper(root.right);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> tilt = (left &gt; right) ? (left - right) : (right - left);</span><br><span class="line">        treeTilt += tilt;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> left + right + root.val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -477,15 +468,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,7 +512,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,7 +520,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

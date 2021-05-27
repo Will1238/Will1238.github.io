@@ -171,14 +171,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4><span id="链接">链接</span></h4><p><a href="https://leetcode-cn.com/problems/range-sum-of-bst" target="_blank" rel="noopener">https://leetcode-cn.com/problems/range-sum-of-bst</a></p>
+        <h4><span id="链接">链接</span></h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/range-sum-of-bst">https://leetcode-cn.com/problems/range-sum-of-bst</a></p>
 <h4><span id="题目描述">题目描述</span></h4><p>给定二叉搜索树的根结点 root，返回 L 和 R（含）之间的所有结点的值的和。</p>
 <p>二叉搜索树保证具有唯一的值。</p>
 <h5><span id="示例-1">示例 1：</span></h5><p>输入：root = [10,5,15,3,7,null,18], L = 7, R = 15<br>输出：32</p>
 <h5><span id="示例-2">示例 2：</span></h5><p>输入：root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10<br>输出：23</p>
 <h4><span id="我的思路">我的思路</span></h4><p>使用二叉树的中序遍历为框架，将满足条件的结点加入结果中即可。</p>
 <h4><span id="我的解法java">我的解法（Java）</span></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rangeSumBST</span><span class="params">(TreeNode root, <span class="keyword">int</span> L, <span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">            sum += rangeSumBST(root.left, L, R);</span><br><span class="line">            <span class="keyword">if</span> (root.val &gt;= L &amp;&amp; root.val &lt;= R) sum += root.val;</span><br><span class="line">            sum += rangeSumBST(root.right, L, R);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> sum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
       
 
@@ -449,15 +448,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -493,7 +492,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -501,7 +500,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>

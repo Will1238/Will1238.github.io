@@ -171,7 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4><span id="链接">链接</span></h4><p><a href="https://leetcode-cn.com/problems/find-mode-in-binary-search-tree" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-mode-in-binary-search-tree</a></p>
+        <h4><span id="链接">链接</span></h4><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/find-mode-in-binary-search-tree">https://leetcode-cn.com/problems/find-mode-in-binary-search-tree</a></p>
 <h4><span id="题目描述">题目描述</span></h4><p>给定一个有相同值的二叉搜索树（BST），找出 BST 中的所有众数（出现频率最高的元素）。</p>
 <p>假定 BST 有如下定义：</p>
 <ul>
@@ -180,22 +180,17 @@
 <li>左子树和右子树都是二叉搜索树</li>
 </ul>
 <h5><span id="例如">例如：</span></h5><p>给定 BST [1,null,2,2],</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line"> \</span><br><span class="line">  2</span><br><span class="line"> &#x2F;</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-
-
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line"> \</span><br><span class="line">  2</span><br><span class="line"> /</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
 <p>返回[2].</p>
 <p>提示：如果众数超过1个，不需考虑输出顺序</p>
 <p>进阶：你可以不使用额外的空间吗？（假设由递归产生的隐式调用栈的开销不被计算在内）</p>
-<a id="more"></a>
-
+<span id="more"></span>
 <h4><span id="我的思路">我的思路</span></h4><p>初始的思路比较繁琐，考虑将所有元素出现频次通过HashMap进行统计，通过转换成ArrayList和Collections.sort()方法进行排序，将出现频次最高的作为众数返回。</p>
 <p>其中用到了ArrayList带Collection参数的构造方法和lambda表达式（Comparable接口）简化操作。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Collections.sort()函数签名</span></span><br><span class="line">Collections.sort(List&lt;T&gt;, Comparator &lt; ? <span class="keyword">super</span> T &gt; c)</span><br><span class="line"></span><br><span class="line"><span class="comment">//Comparator接口，必须实现compare方法，其他方法可以不实现</span></span><br><span class="line"><span class="comment">//Compares its two arguments for order. </span></span><br><span class="line"><span class="comment">//Returns a negative integer, zero, or a positive integer </span></span><br><span class="line"><span class="comment">//as the first argument is less than, equal to, or greater than the second.</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T o1, T o2)</span></span></span><br></pre></td></tr></table></figure>
-
-<p><br><br></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Collections.sort()函数签名</span></span><br><span class="line">Collections.sort(List&lt;T&gt;, Comparator &lt; ? <span class="keyword">super</span> T &gt; c)</span><br><span class="line"></span><br><span class="line"><span class="comment">//Comparator接口，必须实现compare方法，其他方法可以不实现</span></span><br><span class="line"><span class="comment">//Compares its two arguments for order. </span></span><br><span class="line"><span class="comment">//Returns a negative integer, zero, or a positive integer </span></span><br><span class="line"><span class="comment">//as the first argument is less than, equal to, or greater than the second.</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T o1, T o2)</span></span></span><br><span class="line"><span class="function"></span></span><br></pre></td></tr></table></figure>
+<p>&lt;/br&gt;&lt;/br&gt;</p>
 <h4><span id="我的解法java">我的解法（Java）</span></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] findMode(TreeNode root) &#123;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">        countNums(root, map);</span><br><span class="line">        List&lt;Map.Entry&lt;Integer, Integer&gt;&gt; list = <span class="keyword">new</span> ArrayList(map.entrySet());</span><br><span class="line">        Collections.sort(list, (o1, o2) -&gt; (o2.getValue() - o1.getValue()));</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">int</span> N = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (list.get(i).getValue() == list.get(<span class="number">0</span>).getValue()) &#123;</span><br><span class="line">                N++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            ans[i] = list.get(i).getKey();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">countNums</span><span class="params">(TreeNode root, Map&lt;Integer, Integer&gt; map)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        <span class="keyword">if</span> (map.containsKey(root.val)) &#123;</span><br><span class="line">            map.replace(root.val, map.get(root.val) + <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            map.put(root.val, <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        countNums(root.left, map);</span><br><span class="line">        countNums(root.right, map);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4><span id></span></h4>
+<h3><span id>#</span></h3>
       
 
       
@@ -324,7 +319,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">例如：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">我的思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">我的解法（Java）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text"></span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">题目描述</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link"><span class="toc-number">2.1.</span> <span class="toc-text">例如：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">我的思路</span></a></li><li class="toc-item toc-level-4"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">我的解法（Java）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">#</span></a>
                     </div>
                 </span>
             </div>
@@ -465,15 +460,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Web</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Test</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Web</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -509,7 +504,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -517,7 +512,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
             
             <div class="clearfix"></div>
