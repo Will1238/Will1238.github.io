@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>卡尔曼滤波 | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="卡尔曼滤波（Kalman Filtering）对一般性的卡尔曼滤波的过程和公式做一个记录，以供查阅。 一般的卡尔曼滤波的过程如下图所示：    预测方程为： $$ \large \begin{align} \color{#F0A}{\mathbf{\hat{x}}_k} &amp; &#x3D; \mathbf{F}_k {\color{#07F}{\mathbf{\hat{x}}_{k-1}}} +">
+  <meta name="description" content="卡尔曼滤波（Kalman Filtering）对一般性的卡尔曼滤波的过程和公式做一个记录，以供查阅。 一般的卡尔曼滤波的过程如下图所示：  预测方程为：$$\large\begin{align}\color{red}{\mathbf{\hat{x}}_k} &amp; &#x3D; \mathbf{F}k \mathbf{\hat{x}}{k-1} +">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卡尔曼滤波">
 <meta property="og:url" content="http://yoursite.com/2021/05/26/Postgraduate/Kalman-Filtering/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="卡尔曼滤波（Kalman Filtering）对一般性的卡尔曼滤波的过程和公式做一个记录，以供查阅。 一般的卡尔曼滤波的过程如下图所示：    预测方程为： $$ \large \begin{align} \color{#F0A}{\mathbf{\hat{x}}_k} &amp; &#x3D; \mathbf{F}_k {\color{#07F}{\mathbf{\hat{x}}_{k-1}}} +">
+<meta property="og:description" content="卡尔曼滤波（Kalman Filtering）对一般性的卡尔曼滤波的过程和公式做一个记录，以供查阅。 一般的卡尔曼滤波的过程如下图所示：  预测方程为：$$\large\begin{align}\color{red}{\mathbf{\hat{x}}_k} &amp; &#x3D; \mathbf{F}k \mathbf{\hat{x}}{k-1} +">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/Kalman_Filter.jpg">
 <meta property="article:published_time" content="2021-05-26T13:21:32.000Z">
-<meta property="article:modified_time" content="2021-05-26T15:02:40.750Z">
+<meta property="article:modified_time" content="2021-05-27T02:50:15.065Z">
 <meta property="article:author" content="Will Ling">
 <meta property="article:tag" content="Object Tracking">
 <meta property="article:tag" content="Postgraduate">
@@ -40,7 +40,7 @@
 
   
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -54,7 +54,7 @@
 			<img src="/img/header.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Will Ling</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
 		
 
@@ -108,7 +108,7 @@
 				<img src="/img/header.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">Will Ling</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
 			
 			
@@ -174,65 +174,9 @@
       
         <h3><span id="卡尔曼滤波kalman-filtering">卡尔曼滤波（Kalman Filtering）</span></h3><p>对一般性的卡尔曼滤波的过程和公式做一个记录，以供查阅。</p>
 <p>一般的卡尔曼滤波的过程如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/Kalman_Filter.jpg" alt></p>
-
-
-预测方程为：
-$$
-\large
-\begin{align}
-\color{#F0A}{\mathbf{\hat{x}}_k} & = \mathbf{F}_k {\color{#07F}{\mathbf{\hat{x}}_{k-1}}} +
-									 \mathbf{B}_k \color{#F80}{\vec{\mathbf{u}_k}} \\
-\color{#F0A}{\mathbf{P}_k} & = \mathbf{F}_k {\color{#07F}{\mathbf{P}_{k-1}}}\mathbf{F}_k^T + 
-									 \color{#0BA}{\mathbf{Q}_k}
-\end{align}
-$$
-其中：
-$$
-\large
-\begin{align}
-{\color{#F0A}\mathbf{\hat{x}}_k} & : k时刻最佳预测值 \\
-{\color{#07F}{\mathbf{\hat{x}}_{k-1}}} & : k-1时刻最佳预测值 \\
-\mathbf{F}_k & : 状态转移矩阵 \\
-\mathbf{B}_k & : 控制矩阵 \\
-\color{#F80}{\vec{\mathbf{u}_k}} & : 控制向量 \\
-\mathbf{B}_k \color{#F80}{\vec{\mathbf{u}_k}} & : 外界作用力 \\
-\color{#F0A}{\mathbf{P}_k} & : k时刻最佳预测值的协方差矩阵 \\
-{\color{#07F}{\mathbf{P}_{k-1}}} & : k-1时刻最佳预测值的协方差矩阵 \\
-\color{#0BA}{\mathbf{Q}_k} & : 外界不确定性（噪声）
-\end{align}
-$$
-更新方程为：
-$$
-\large
-\begin{align}
-\color{#07F}{\mathbf{\hat{x}}_k'} & = {\color{#F0A}{\mathbf{\hat{x}}_k}} +
-									  {\color{#A00}\mathbf{K'}}
-									  ({\color{#8A0}\vec{\mathbf{z}_k}} -
-                                      {\color{#F0A}\mathbf{H}_k \mathbf{\hat{x}}_k}) \\
-\color{#07F}{\mathbf{P}_k'} & = {\color{#F0A}\mathbf{P}_k} -
-								{\color{#A00}\mathbf{K'}}
-								{\color{#F0A}\mathbf{H}_k \mathbf{P}_k} \\
-\color{#A00}\mathbf{K'} & = {\color{#F0A}\mathbf{P}_k \mathbf{H}_k^T}
-							({\color{#F0A}\mathbf{H}_k \mathbf{P}_k \mathbf{H}_k^T} + 
-							{\color{#0BA}\mathbf{R}_k})^{-1}
-\end{align}
-$$
-其中：
-$$
-\large
-\begin{align}
-{\color{#07F}{\mathbf{\hat{x}}_k'}} & : 更新后的k时刻最佳预测值 \\
-{\color{#07F}{\mathbf{P}_k'}} & : 更新后的k时刻最佳预测值的协方差矩阵 \\
-{\color{#8A0}\vec{\mathbf{z}_k}} & : 观测的平均值 \\
-{\color{#F0A}\mathbf{H}_k} & : 观测矩阵 \\
-{\color{#A00}\mathbf{K'}} & : 卡尔曼增益 \\
-{\color{#0BA}\mathbf{R}_k} & : 观测的不确定性的方差（观测噪声） \\
-\end{align}
-$$
-具体推导过程，详见 [How a Kalman filter works, in pictures | Bzarg](http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/#mathybits)。
-
-
+<p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/Kalman_Filter.jpg"></p>
+<p>预测方程为：<br>$$<br>\large<br>\begin{align}<br>\color{red}{\mathbf{\hat{x}}_k} &amp; = \mathbf{F}<em>k \mathbf{\hat{x}}</em>{k-1} +<br>                                     \mathbf{B}_k \vec{\mathbf{u}_k} \<br>\mathbf{P}_k &amp; = \mathbf{F}<em>k \mathbf{P}</em>{k-1}\mathbf{F}_k^T +<br>                                     \mathbf{Q}_k<br>\end{align}<br>$$</p>
+<p>具体推导过程，详见 <a href="http://www.bzarg.com/p/how-a-kalman-filter-works-in-pictures/#mathybits" target="_blank" rel="noopener">How a Kalman filter works, in pictures | Bzarg</a>。</p>
 
       
 
@@ -349,7 +293,7 @@ $$
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">卡尔曼滤波（Kalman Filtering）</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">卡尔曼滤波（Kalman Filtering）</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -478,14 +422,6 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Test</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
@@ -498,15 +434,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Notes</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Web</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Object Tracking</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Postgraduate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,6 +451,14 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Backtracking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Object Tracking</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Postgraduate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,7 +478,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
+                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,7 +486,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Tree</a>
+                <a href="javascript:void(0)" class="js-tag color1">LinkedList</a>
               </li>
             
             <div class="clearfix"></div>
@@ -682,5 +626,6 @@ MathJax.Hub.Queue(function() {
     });
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
 </html>
