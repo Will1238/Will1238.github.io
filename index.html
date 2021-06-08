@@ -166,8 +166,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2><span id="content">Content</span></h2><p>[TOC]</p>
-<h2><span id="i-introduce">I. Introduce</span></h2><h3><span id="a-multiple-output-guassian-processes">A. Multiple-output Guassian Processes</span></h3><ul>
+        <h2 id="Content"><a href="#Content" class="headerlink" title="Content"></a>Content</h2><!-- toc -->
+<ul>
+<li><a href="#i-introduce">I. Introduce</a><ul>
+<li><a href="#a-multiple-output-guassian-processes">A. Multiple-output Guassian Processes</a></li>
+<li><a href="#b-complexity-reduction-via-sparse-approximation">B. Complexity Reduction via Sparse Approximation</a></li>
+<li><a href="#contributions">Contributions</a></li>
+</ul>
+</li>
+<li><a href="#ii-sparse-multi-output-gp-model">II. SPARSE MULTI-OUTPUT GP MODEL</a></li>
+<li><a href="#iii-online-regression-and-learning">III. ONLINE REGRESSION AND LEARNING</a><ul>
+<li><a href="#a-model-prediction">A. Model Prediction</a></li>
+<li><a href="#b-approximate-model-regression">B. Approximate Model Regression</a><ul>
+<li><a href="#1exact-regression">1）Exact Regression</a></li>
+<li><a href="#2variational-approximation-and-distributed-regression">2）Variational Approximation and Distributed Regression</a></li>
+</ul>
+</li>
+<li><a href="#c-mpf-based-model-regression-and-learning">C. MPF-based Model Regression and Learning</a></li>
+</ul>
+</li>
+<li><a href="#iv-experiments">IV. EXPERIMENTS</a><ul>
+<li><a href="#a-synthetic-data">A. Synthetic Data</a></li>
+<li><a href="#b-robot-inverse-dynamics-data">B. Robot Inverse Dynamics Data</a></li>
+</ul>
+</li>
+<li><a href="#appendix">APPENDIX</a></li>
+<li><a href="#补充知识">补充知识</a><ul>
+<li><a href="#随机过程">随机过程</a></li>
+<li><a href="#边缘分布边际分布marginal-distribution">边缘分布（边际分布）（Marginal Distribution）</a><ul>
+<li><a href="#定义">定义</a></li>
+</ul>
+</li>
+<li><a href="#高斯分布">高斯分布</a><ul>
+<li><a href="#一元高斯分布">一元高斯分布</a></li>
+<li><a href="#协方差">协方差</a></li>
+<li><a href="#高斯核函数rbf径向基函数核平方指数核">高斯核函数（RBF，径向基函数核，平方指数核）</a></li>
+<li><a href="#多元高斯分布的三个条件">多元高斯分布的三个条件</a></li>
+<li><a href="#多元高斯分布的概率密度函数">多元高斯分布的概率密度函数</a></li>
+</ul>
+</li>
+<li><a href="#高斯过程gaussian-process">高斯过程（Gaussian process）</a><ul>
+<li><a href="#定义-1">定义</a></li>
+</ul>
+</li>
+<li><a href="#克罗内克积">克罗内克积</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<h2 id="I-Introduce"><a href="#I-Introduce" class="headerlink" title="I. Introduce"></a>I. Introduce</h2><h3 id="A-Multiple-output-Guassian-Processes"><a href="#A-Multiple-output-Guassian-Processes" class="headerlink" title="A. Multiple-output Guassian Processes"></a>A. Multiple-output Guassian Processes</h3><ul>
 <li><p>The standard GP model assumes a signle output variable only</p>
 </li>
 <li><p>The conventianal(传统的) approach for multi-output regression consists of applying an independent GP to each output variable</p>
@@ -183,7 +230,7 @@
 <li><p>It is also popular to establish a multi-output GP model by linearly combining the latent GPs（线性组合潜在的高斯过程来建立多输出的高斯模型也是常用方法）</p>
 </li>
 </ul>
-<h3><span id="b-complexity-reduction-via-sparse-approximation">B. Complexity Reduction via Sparse Approximation</span></h3><ul>
+<h3 id="B-Complexity-Reduction-via-Sparse-Approximation"><a href="#B-Complexity-Reduction-via-Sparse-Approximation" class="headerlink" title="B. Complexity Reduction via Sparse Approximation"></a>B. Complexity Reduction via Sparse Approximation</h3><ul>
 <li><p>The computational cost of performing exact inference with multi-output GP models would become prohibitive(过高的) when the training data set is large</p>
 </li>
 <li><ul>
@@ -214,397 +261,14 @@
 </ul>
 </li>
 </ul>
-<h3><span id="contributions">Contributions</span></h3><ul>
+<h3 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h3><ul>
 <li>Online regression and hyperparameter learning</li>
 <li>Approximate model regression</li>
 <li>Performance verification</li>
 </ul>
-<h2><span id="ii-sparse-multi-output-gp-model">II. SPARSE MULTI-OUTPUT GP MODEL</span></h2><p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210521102311.png" alt></p>
-<p>使用 $x \in \mathbb{R}^{D \times 1}$ 作为输入，其中 $D$ 是输入的维度。模型有 $P$ 个输出，每个输出都是 $Q$ 个latent函数（$g_j(x), j = 1,2,…,Q$）的线性组合。<br>第$i$个模型输出 $y_i(X)$ 为：</p>
-<script type="math/tex; mode=display">
-y_i(X) = \sum_{j=1}^Q w_{i,j} \cdot g_j(X) + \epsilon_i,\ i=1,2,...,P,
-\tag{1} \label{1}</script><p>其中 $w_{i,j}$ 是混合系数， $\epsilon_i$ 是第 $i$ 个输出通道的零均值独立高斯噪声，精度为 $\beta_i$ ，即 $\epsilon_i \sim N(0, \beta_i^{-1})$ 。<br>注意latent函数 $g_j(X)$ 使用相同的输入 $X$ ，因此对于 $P$ 对输入输出关系需要同时建模。<br>latent函数 $g_j(X)$ 拥有独立GP先验，表示为</p>
-<script type="math/tex; mode=display">
-g_j(X) \sim \mathcal{GP}(m_j(X), k_j(X,X')),
-\tag{2} \label{2}</script><p>其中 $m_j(X)$ 是均值函数， $k_j(X,X’)$ 表示半正定协方差函数。通常使用0均值函数 $m_j(X)=0$ 和平方指数核（高斯核）</p>
-<script type="math/tex; mode=display">
-k_j(X,X')=\alpha_j^2 \cdot e^{-\frac{1}{2} (X-X')^T \Lambda_j^{-1} (X-X')}
-\tag{3} \label{3}</script><p>其中， $\alpha<em>j^2$ 是latent函数 $g_j(X)$ 的方差， $\Lambda_j^{-1}$ 是以输入维度的特征长度尺寸 $\lambda</em>{d,j}(d=1,2,…,D)$ 为对角元素的对角矩阵。<br>模型的超参数向量为</p>
-<script type="math/tex; mode=display">
-\theta = [\alpha^T,\lambda_1^T,\lambda_2^T,...,\lambda_Q^T,w_1^T,w_2^T,...,w_Q^T,\beta^T]^T,
-\tag{4} \label{4}</script><p>为了实现稀疏性和有效处理大规模问题，对每个潜在GP引入一组诱导输入。令 $\mathbf{Z}<em>j=[\mathbf{z}</em>{1,j},\mathbf{z}<em>{2,j},…,\mathbf{z}</em>{M,j}]$ 为第 $j$ 个latent函数的 $M$ 个诱导点的位置，其中 $\mathbf{z}<em>{k,j}(k=1,2,…,M)$ 为诱导点 $g_j(\mathbf{z}</em>{k,j})$ 的实际输入。此外，令 $\mathbf{h}<em>j=[g_j(\mathbf{z}</em>{1,j}),g<em>j(\mathbf{z}</em>{2,j}),…,g<em>j(\mathbf{z}</em>{M,j})]^T$ 。<br>由于 $g_j(X)$ 有一个均值函数为 $m_j(X)$ ，协方差函数为 $k_j(X,X’)$ 的GP先验， $\mathbf{h}_j$ 的先验分布为</p>
-<script type="math/tex; mode=display">
-\mathcal{p_0}(\mathbf{h}_j) =
-\mathcal{N}(\mathbf{m}_j(\mathbf{Z}_j), \mathbf{K}_j(\mathbf{Z}_j,\mathbf{Z}_j)).
-\tag{5} \label{5}</script><p>其中，均值向量为</p>
-<script type="math/tex; mode=display">
-\mathbf{m}_j(\mathbf{Z}_j) =
-[m_j (\mathbf{z}_{1,j}),m_j (\mathbf{z}_{2,j}),...,m_j (\mathbf{z}_{M,j}),]^T.
-\tag{6} \label{6}</script><p>协方差矩阵为</p>
-<script type="math/tex; mode=display">
-[\mathbf{K}_j(\mathbf{Z}_j,\mathbf{Z}_j)]_{k,l} = k_j(\mathbf{z}_{k,j},\mathbf{z}_{l,j}),\ k,l=1,2,...,M.
-\tag{7} \label{7}</script><h2><span id="iii-online-regression-and-learning">III. ONLINE REGRESSION AND LEARNING</span></h2><h3><span id="a-model-prediction">A. Model Prediction</span></h3><p>将第 $j$ 个潜在稀疏GP的诱导点 $\mathbf{h}<em>j$ 的上一时刻后验表示为 $\mathcal{p} (\mathbf{h}_j \mid \mathcal{D}</em>{0:t-1})$ ，此处t表示时间索引， $\mathcal{D}_{0:t-1}$ 表示包含 $t-1$ 之前接收的所有训练数据的集合。假定 $\mathbf{h}_j$ 服从高斯分布，则</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{h}_j \mid \mathcal{D}_{0:t-1}) =
-\mathcal{N} (\mu_{t-1}^{\mathbf{h}_j}, \mathbf{C}_{t-1}^{\mathbf{h}_j}),j=1,2,...,Q,
-\tag{8} \label{8}</script><p>其中， $\mu<em>{t-1}^{\mathbf{h}_j}$ 和 $\mathbf{C}</em>{t-1}^{\mathbf{h}_j}$ 是相关的均值和协方差。<br>定义复合诱导点向量：</p>
-<script type="math/tex; mode=display">
-\mathbf{h}=[\mathbf{h}_1^T,\mathbf{h}_2^T,...\mathbf{h}_Q^T,]^T.
-\tag{9} \label{9}</script><p>因此，它在 $t-1$ 时刻的后验分布为：</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{h} \mid \mathcal{D}_{0:t-1}) =
-\prod_{j=1}^Q \mathcal{p} (\mathbf{h}_j \mid \mathcal{D}_{0:t-1}) =
-\mathcal{N} (\mu_{t-1}^{\mathbf{h}_j}, \mathbf{C}_{t-1}^{\mathbf{h}_j}),
-\tag{10} \label{10}</script><p>其中</p>
-<script type="math/tex; mode=display">
-\mu_{t-1}^{\mathbf{h}} =
-[(\mu_{t-1}^{\mathbf{h}_1})^T,(\mu_{t-1}^{\mathbf{h}_2})^T,...,(\mu_{t-1}^{\mathbf{h}_Q})^T]^T, \tag{11a} \label{11a}</script><script type="math/tex; mode=display">
-\mathbf{C}_{t-1}^{\mathbf{h}} =
-\operatorname{diag}(\mathbf{C}_{t-1}^{\mathbf{h}_1},\mathbf{C}_{t-1}^{\mathbf{h}_2},...,\mathbf{C}_{t-1}^{\mathbf{h}_Q}).
-\tag{11b} \label{11b}</script><p>在当前时刻t，我们想要预测给定后验分布 $\mathcal{p} (\mathbf{h} \mid \mathcal{D}<em>{0:t-1})$ 以及超参数向量 $\theta$ 时对应 $N_t$ 个输入的模型输出。因此，首先定义在输入为 $\mathbf{X}_t = [\mathbf{x}</em>{t,1}, \mathbf{x}<em>{t,2},…, \mathbf{x}</em>{t,N<em>t},]$ 时latent函数的函数值为 $\mathbf{g}</em>{t,j} = [g<em>j(\mathbf{x}</em>{t,1}), g<em>j(\mathbf{x}</em>{t,2}),…,g<em>j(\mathbf{x}</em>{t,N<em>t})]^T$ ，将其组合为 $\mathbf{g}_t = [\mathbf{g}</em>{t,1}^T, \mathbf{g}<em>{t,2}^T,…, \mathbf{g}</em>{t,Q}^T]^T$ 。则对于所给诱导点 $\mathbf{h}$ ， $\mathbf{g}_t$ 的条件概率分布为</p>
-<script type="math/tex; mode=display">
-\mathcal{p}(\mathbf{g}_t \mid \mathbf{h}) =
-\prod_{j=1}^Q \mathcal{p}(\mathbf{g}_{t,j} \mid \mathbf{h}_j).
-\tag{12} \label{12}</script><p>（上式成立因为latent函数 $g<em>j(\mathbf{x})$ 具有独立的GP先验）<br>此外， $\mathbf{g}</em>{t,j}$ 和 $\mathbf{h}_j$ 的联合先验是 $\eqref{2}$ 式中指定的GP的有限表示，则有</p>
-<script type="math/tex; mode=display">
-\mathcal{p}(\mathbf{g}_{t,j} \mid \mathbf{h}_j) =
-\mathcal{N} (\tilde{\mu}_{t}^{\mathbf{g}_j}, \tilde{\mathbf{C}}_{t}^{\mathbf{g}_j}),j=1,2,...,Q.
-\tag{13} \label{13}</script><p>由多元高斯分布的条件分布可得均值向量和协方差矩阵为</p>
-<script type="math/tex; mode=display">
-\tilde{\mu}_{t}^{\mathbf{g}_j} =
-\mathbf{m}_j(\mathbf{X}_t) + \mathbf{P}_{t,j}(\mathbf{h}_j - \mathbf{m}_j(\mathbf{Z}_j)),
-\tag{14a} \label{14a}</script><script type="math/tex; mode=display">
-\tilde{\mathbf{C}}_{t}^{\mathbf{g}_j} =
-\mathbf{K}_j(\mathbf{X}_t,\mathbf{X}_t) - \mathbf{P}_{t,j} \mathbf{K}_j(\mathbf{Z}_j,\mathbf{Z}_j)\mathbf{P}_{t,j}^T,
-\tag{14b} \label{14b}</script><p>其中 $\mathbf{m}(\mathbf{X}<em>t) = [m_j(\mathbf{x}</em>{t,1}), m<em>j(\mathbf{x}</em>{t,2}),…, m<em>j(\mathbf{x}</em>{t,N<em>t})]^T$ ，矩阵 $\mathbf{P}</em>{t,j}$ 定义为</p>
-<script type="math/tex; mode=display">
-\mathbf{P}_{t,j} =
-\mathbf{K}_j(\mathbf{X}_t,\mathbf{Z}_j) \mathbf{K}_j^{-1}(\mathbf{Z}_j,\mathbf{Z}_j).
-\tag{15} \label{15}</script><p>其中 $\mathbf{K}_j(\mathbf{X}_t,\mathbf{X}_t)$ 和 $\mathbf{K}_j(\mathbf{X}_t,\mathbf{Z}_j)$ 的定义与 $\eqref{7}$ 中所给出的 $\mathbf{K}_j(\mathbf{Z}_j,\mathbf{Z}_j)$ 定义非常类似，此处不再赘述。<br>为了得到所考虑的稀疏多输出GP模型在 $\mathbf{X}_t$ 处的输出的预测分布，我们定义复合模型输出向量为</p>
-<script type="math/tex; mode=display">
-\mathbf{y}_t = [\mathbf{y}_{t,1}^T, \mathbf{y}_{t,2}^T,...,\mathbf{y}_{t,N_t}^T]^T.
-\tag{16} \label{16}</script><p>此处， $\mathbf{y}<em>{t,n} = [y_1(\mathbf{x}</em>{t,n}), y<em>2(\mathbf{x}</em>{t,n}),…,y<em>P(\mathbf{x}</em>{t,n})]^T$ 对应单个输入 $\mathbf{x}_{t,n} (n=1,2,…,N_t)$ 。根据 $\eqref{1}$ 可知，在给定latent函数值为 $\mathbf{g}_t$ 时， $\mathbf{y}_t$ 的条件分布可以表示为</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{y}_t \mid \mathbf{g}_t) =
-\mathcal{N} (\mathbf{H}_t \mathbf{g}_t, \mathbf{\Lambda}_t).
-\tag{17} \label{17}</script><p>此处，协方差 $\mathbf{\Lambda}<em>t = \mathbf{I}</em>{N<em>t} \bigotimes \mathbf{\Lambda}$ ，其中 $\bigotimes$ 表示克罗内克积， $\mathbf{I}</em>{N_t}$ 是 $N_t \times N_t$ 大小的单位矩阵。矩阵 $\mathbf{\Lambda} = \operatorname{diag}(\beta_1^{-1},\beta_2^{-1},…,\beta_P^{-1})$ 。<br>$PN_t \times QN_t$ 大小的观察矩阵 $\mathbf{H}_t$ 由下式给出</p>
-<script type="math/tex; mode=display">
-\mathbf{H}_t =
-\begin{bmatrix}
-{\mathbf{w}_1 \bigotimes \mathbf{e}_1^T} & {\mathbf{w}_2 \bigotimes \mathbf{e}_1^T} & {\cdots} & {\mathbf{w}_Q \bigotimes \mathbf{e}_1^T}\\
-{\mathbf{w}_1 \bigotimes \mathbf{e}_2^T} & {\mathbf{w}_2 \bigotimes \mathbf{e}_2^T} & {\cdots} & {\mathbf{w}_Q \bigotimes \mathbf{e}_2^T}\\
-{\vdots} & {\vdots} & {\ddots} & {\vdots}\\
-{\mathbf{w}_1 \bigotimes \mathbf{e}_{N_t}^T} & {\mathbf{w}_2 \bigotimes \mathbf{e}_{N_t}^T} & {\cdots} & {\mathbf{w}_Q \bigotimes \mathbf{e}_{N_t}^T}\\
-\end{bmatrix},
-\tag{18} \label{18}</script><p>其中 $\mathbf{e}<em>n$ 是一个第 $n$ 个元素为1，其他元素为0的 $N_t \times 1$ 大小的列向量。向量 $\mathbf{w}_j = [w</em>{1,j}, w<em>{2,j}, …, w</em>{P}]^T$ 包含第 $j$ 个潜在稀疏GP的混合系数（定义在第二节）<br>给定诱导点 $\mathbf{h}$ ，模型输出 $\mathbf{y}_t$ 的条件分布为</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{y}_t \mid \mathbf{h}) =
-\int \mathcal{p} (\mathbf{y}_t \mid \mathbf{g}_t)
-\mathcal{p} (\mathbf{g}_t \mid \mathbf{h}) \operatorname{d \mathbf{g}_t}.
-\tag{19} \label{19}</script><p>将 $\eqref{12}$ 和 $\eqref{17}$ 带入上式，并进行积分，可得</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{y}_t \mid \mathbf{h}) =
-\mathcal{N} (\tilde{\mu}_{t}^{\mathbf{y}}, \tilde{\mathbf{C}}_{t}^{\mathbf{y}}),
-\tag{20} \label{20}</script><p>其中</p>
-<script type="math/tex; mode=display">
-\tilde{\mu}_{t}^{\mathbf{y}} =
-\mathbf{H}_t [(\tilde{\mu}_{t}^{\mathbf{g}_1})^T, (\tilde{\mu}_{t}^{\mathbf{g}_2})^T,..., (\tilde{\mu}_{t}^{\mathbf{g}_Q})^T]^T
-\tag{21a} \label{21a}</script><script type="math/tex; mode=display">
-\tilde{\mathbf{C}}_{t}^{\mathbf{y}} =
-\mathbf{H}_t \cdot \operatorname{diag}(\tilde{\mathbf{C}}_{t}^{\mathbf{g}_1}, \tilde{\mathbf{C}}_{t}^{\mathbf{g}_2},..., \tilde{\mathbf{C}}_{t}^{\mathbf{g}_Q})
-\cdot \mathbf{H}_t^T + \mathbf{\Lambda}_t
-\tag{21b} \label{21b}</script><p>通过下式将 $\mathbf{h}$ 边缘化，可以得到模型输出 $\mathbf{y}_t$ 的预测分布。</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{y}_t \mid \mathcal{D}_{0:t-1}) =
-\int \mathcal{p} (\mathbf{y}_t \mid \mathbf{h})
-\mathcal{p} (\mathbf{h} \mid \mathcal{D}_{0:t-1}) \operatorname{d \mathbf{h}}.
-\tag{22} \label{22}</script><p>其中使用了近似值 $\mathcal{p} (\mathbf{y}<em>t \mid \mathcal{D}</em>{0:t-1}) \approx \mathcal{p} (\mathbf{y}<em>t)$ 。该近似值表明，给定诱导点$\mathbf{h}$，当前模型输出$\mathbf{y}_t$和$\mathcal{D}</em>{0:t-1}$中的训练数据是条件独立的。因此，来自$\mathcal{D}<em>{0:t-1}$的信息只能通过 $\mathbf{h}$ 的后验 $\mathcal{p} (\mathbf{h} \mid \mathcal{D}</em>{0:t-1})$ 传递给 $\mathbf{y}<em>t$ 。由于 $\mathbf{h}$ 中的诱导点数量通常比数据集 $\mathcal{D}</em>{0:t-1}$ 中的数据点数量少得多，这被称为诱导点假设或稀疏逼近。<br>通过稀疏逼近的方式，不再需要像标准GP那样直接存储和处理用于推理的训练数据，取而代之，我们只需要使用诱导点的后验。<br>接下来的工作着重于将 $\eqref{22}$ 中的 $\mathcal{p} (\mathbf{y}<em>t \mid \mathcal{D}</em>{0:t-1})$ 与模型输出 $\mathbf{y}<em>t$ 的真实预测分布进行比较，真实预测分布可以从 $\mathbf{y}_t$ 和 $\mathcal{D}</em>{0:t-1}$ 联合分布中导出。这样，我们可以进一步了解使用诱导点假设带来的近似误差。<br>将 $\eqref{10}$ 和 $\eqref{20}$ 代入 $\eqref{22}$ 并按照标准的卡尔曼滤波的预测步骤进行计算可以得到</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{y}_t \mid \mathcal{D}_{0:t-1}) =
-\mathcal{N} (\bar{\mu}_{t}^{\mathbf{y}}, \bar{\mathbf{C}}_{t}^{\mathbf{y}}),
-\tag{23} \label{23}</script><p>输入 $\mathbf{X}_t$ 的预测模型输出由平均向量给出</p>
-<script type="math/tex; mode=display">
-\bar{\mu}_{t}^{\mathbf{y}} =
-\mathbf{H}_t \bar{\mu}_{t}^{\mathbf{g}}.
-\tag{24} \label{24}</script><p>预测的不确定性由协方差 $\bar{\mathbf{C}}_{t}^{\mathbf{y}}$ 量化，等于</p>
-<script type="math/tex; mode=display">
-\bar{\mathbf{C}}_{t}^{\mathbf{y}} =
-\mathbf{H}_t \bar{\mathbf{C}}_{t}^{\mathbf{g}} \mathbf{H}_t^T + \mathbf{\Lambda}_t
-\tag{25} \label{25}</script><p>$\bar{\mu}<em>{t}^{\mathbf{g}}$ 和 $\bar{\mathbf{C}}</em>{t}^{\mathbf{g}}$ 被定义为</p>
-<script type="math/tex; mode=display">
-\bar{\mu}_{t}^{\mathbf{g}} =
-[(\bar{\mu}_{t}^{\mathbf{g}_1})^T, (\bar{\mu}_{t}^{\mathbf{g}_2})^T,..., (\bar{\mu}_{t}^{\mathbf{g}_Q})^T]^T,
-\tag{26a} \label{26a}</script><script type="math/tex; mode=display">
-\bar{\mathbf{C}}_{t}^{\mathbf{g}} =
-\operatorname{diag}(\mathbf{C}_{t}^{\mathbf{g}_1}, \mathbf{C}_{t}^{\mathbf{g}_2},..., \mathbf{C}_{t}^{\mathbf{g}_Q})
-\tag{26b} \label{26b}</script><p>其中对于 $j=1,2,…,Q$ ，</p>
-<script type="math/tex; mode=display">
-\bar{\mu}_{t}^{\mathbf{g}_j} =
-\mathbf{m}_j (\mathbf{X}_t) +
-\mathbf{P}_{t,j} (\mu_{t-1}^{\mathbf{g}_j} - \mathbf{m}_j (\mathbf{Z}_j)),
-\tag{27a} \label{27a}</script><script type="math/tex; mode=display">
-\bar{\mathbf{C}}_{t}^{\mathbf{g}_j} =
-\tilde{\mathbf{C}}_{t}^{\mathbf{g}_j} +
-\mathbf{P}_{t,j} \mathbf{C}_{t-1}^{\mathbf{h}_j} \mathbf{P}_{t,j}^T
-\tag{27b} \label{27b}</script><p>从上述推导中可以得到两个重要结论：</p>
-<ol>
-<li>根据 $\eqref{23}$ ，模型预测服从高斯分布。这是因为诱导点 $\mathbf{h}$ 的后验是高斯的，并且从 $\eqref{14a}$ 和 $\eqref{21a}$ 来看，latent函数的函数值 $\mathbf{g}_t$ 与模型输出 $\mathbf{y}_t$ 都与 $\mathbf{h}$ 线性相关。</li>
-<li>根据 $\eqref{27a}$ 和 $\eqref{27b}$ 可以发现，计算预测的latent函数的函数值 $\mathbf{g}_{t,j}$ 和其协方差只需要与第 $j$ 个潜在稀疏GP的相关信息。这是由于假设不同latent函数的诱导点是条件独立的（见 $\eqref{10} $ ），并且latent函数具有独立的GP先验（见 $\eqref{12}$ ）。因此，可以首先并行地在latent GPs中求得 $\eqref{27a}$ 和 $\eqref{27b}$ 的值，然后通过 $\eqref{24}$ 和 $\eqref{25}$ 综合结果，最后得到模型预测。</li>
-</ol>
-<h3><span id="b-approximate-model-regression">B. Approximate Model Regression</span></h3><h4><span id="1exact-regression">1）Exact Regression</span></h4><p>在 $t$ 时刻，收到一组数量为 $N<em>t$ 的训练数据点 ${(\mathbf{x}</em>{t,n}, \mathbf{y}<em>{t,n})}</em>{n=1}^{N<em>t}$ ，其中 $\mathbf{x}</em>{t,n}$ 是输入，但 $\mathbf{y}<em>{t,n}$ 在此处为噪声观测值。我们着重于通过前一时刻的后验 $\mathcal{p} (\mathbf{h} \mid \mathcal{D}</em>{0:t-1})$ 和新取得的训练数据来得到诱导点的更新后验 $\mathcal{p} (\mathbf{h} \mid \mathcal{D}<em>{0:t})$ 。此处 $\mathcal{D}</em>{0:t} = \mathcal{D}<em>{0:t-1} \cup {\mathbf{x}</em>{t,n}, \mathbf{y}<em>{t,n}}</em>{n=1}^{N<em>t}$ ，并且令 $\mathbf{X}_t = [\mathbf{x}</em>{t,1}, \mathbf{x}<em>{t,2},…, \mathbf{x}</em>{t,N_t}]$ 为 $t$ 时刻的 $N_t$ 个输入。<br>根据贝叶斯定理，更新后的后验为</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{h} \mid \mathcal{D}_{0:t}) =
-\frac
-{\mathcal{p} (\mathbf{y}_t \mid \mathbf{h}) \mathcal{p} (\mathbf{h} \mid \mathcal{D}_{0:t-1})}
-{\mathcal{p} (\mathbf{y}_t \mid \mathcal{D}_{0:t-1})},
-\tag{28} \label{28}</script><p>其中 $\mathbf{y}<em>t$ 包含 $t$ 时刻所有噪声观测值，类似于 $\eqref{16}$ 。为了得到 $\eqref{28}$ ，根据诱导点假设，使用近似 $\mathcal{p} (\mathbf{y}_t \mid \mathbf{h},\mathcal{D}</em>{0:t-1}) \approx \mathcal{p} (\mathbf{y}_t \mid \mathbf{h})$ ，该部分原因在 $\eqref{22}$ 处已讨论。<br>为了计算$\eqref{28}$ ，将 $\eqref{10}$ 和 $\eqref{20}$ 代入，按照标准卡尔曼滤波器量测更新步骤得到</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{h} \mid \mathcal{D}_{0:t}) =
-\mathcal{N} (\mu_{t}^{\mathbf{h}}, \mathbf{C}_{t}^{\mathbf{h}}),
-\tag{29} \label{29}</script><p>其中均值向量 $\mu<em>{t}^{\mathbf{h}}$ 和协方差 $\mathbf{C}</em>{t}^{\mathbf{h}}$ 由下式给出</p>
-<script type="math/tex; mode=display">
-\mu_{t}^{\mathbf{h}} =
-\mu_{t-1}^{\mathbf{h}} +
-\mathbf{C}_{t-1}^{\mathbf{h}} \mathbf{P}_t^T \mathbf{H}_t^T (\bar{\mathbf{C}}_t^\mathbf{y})^{-1} (\mathbf{y}_t - \bar{\mu}_t^{\mathbf{y}}),
-\tag{30a} \label{30a}</script><script type="math/tex; mode=display">
-\mathbf{C}_{t}^{\mathbf{h}} =
-((\mathbf{C}_{t-1}^{\mathbf{h}})^{-1} +
-\mathbf{P}_t^T \mathbf{H}_t^T (\tilde{\mathbf{C}}_t^\mathbf{y})^{-1} \mathbf{H}_t \mathbf{P}_t)^{-1}.
-\tag{30b} \label{30b}</script><p>此处 $\bar{\mu}_t^{\mathbf{y}}$ 、 $\bar{\mathbf{C}}_t^\mathbf{y}$ 和 $\tilde{\mathbf{C}}_t^\mathbf{y}$ 在 $\eqref{24}$ 、 $\eqref{25}$ 和 $\eqref{21b}$ 中给出。矩阵 $\mathbf{P}_t$ 的形式为</p>
-<script type="math/tex; mode=display">
-\mathbf{P}_t =
-\operatorname{diag}(\mathbf{P}_{t,1}, \mathbf{P}_{t,2},..., \mathbf{P}_{t,Q}),
-\tag{31} \label{31}</script><p>其中 $\mathbf{P}_{t,j}$ 定义于 $\eqref{15}$ 。<br>精确回归 $\eqref{29}$ 可以被认为是在线回归技术对多输出场景的推广。为了进一步观察结果，我们首先用下面的方阵表示 $\mathbf{H}_t \mathbf{P}_t$</p>
-<script type="math/tex; mode=display">
-\mathbf{H}_t \mathbf{P}_t =
-[\mathbf{G}_{t,1}, \mathbf{G}_{t,2},..., \mathbf{G}_{t,Q}]
-\tag{32} \label{32}</script><p>其中从 $\eqref{18}$ 和 $\eqref{31}$ 可知</p>
-<script type="math/tex; mode=display">
-\mathbf{G}_{t,j} =
-\begin{bmatrix}
-{\mathbf{w}_1 \bigotimes \mathbf{e}_1^T}\\
-{\mathbf{w}_1 \bigotimes \mathbf{e}_2^T}\\
-{\vdots}\\
-{\mathbf{w}_1 \bigotimes \mathbf{e}_{N_t}^T}\\
-\end{bmatrix}
-\mathbf{P}_{t,j}, j=1,2,...,Q.
-\tag{33} \label{33}</script><p>由 $\eqref{11a}$ 可以将 $t$ 时刻的后验均值写为</p>
-<script type="math/tex; mode=display">
-\mu_{t}^{\mathbf{h}} =
-[(\mu_t^{\mathbf{h}_1})^T,(\mu_t^{\mathbf{h}_2})^T,...,(\mu_t^{\mathbf{h}_Q})^T]^T,
-\tag{34} \label{34}</script><p>其中 $\mu_t^{\mathbf{h}_j}$ 是第 $j$ 个潜在稀疏GP的引导点的后验均值，将 $\eqref{32}$ 和 $\eqref{11b}$ 代入 $\eqref{30a}$ 可知其等于</p>
-<script type="math/tex; mode=display">
-\mu_t^{\mathbf{h}_j} =
-\mu_{t-1}^{\mathbf{h}_j} +
-\mathbf{C}_{t-1}^{\mathbf{h}_j} \mathbf{G}_{t,j}^T (\bar{\mathbf{C}}_t^\mathbf{y})^{-1} (\mathbf{y}_t - \bar{\mu}_t^{\mathbf{y}}).
-\tag{35} \label{35}</script><p>上述结果表明，只要项 $(\bar{\mathbf{C}}<em>t^\mathbf{y})^{-1} (\mathbf{y}_t - \bar{\mu}_t^{\mathbf{y}})$ 可用，就可以在第 $j$ 个latent函数中单独更新 $\mathbf{h}_j$ 的后验均值。<br>接下来我们计算后验协方差 $\mathbf{C}</em>{t}^{\mathbf{h}}$ 。通过将 $\eqref{32}$ 和 $\eqref{11b}$ 代入 $\eqref{30b}$ ，我们可以验证 $\mathbf{C}_{t}^{\mathbf{h}}$ 可以用 $\eqref{36}$ 的方阵表示。</p>
-<script type="math/tex; mode=display">
-\mathbf{C}_{t}^{\mathbf{h}} =
-\begin{bmatrix}
-{(\mathbf{C}_{t}^{\mathbf{h}_1})^{-1}} &
-{\mathbf{G}_{t,1}^T (\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1} \mathbf{G}_{t,2}} &
-{\cdots} &
-{\mathbf{G}_{t,1}^T (\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1} \mathbf{G}_{t,Q}}\\
-{\mathbf{G}_{t,2}^T (\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1} \mathbf{G}_{t,1}} &
-{(\mathbf{C}_{t}^{\mathbf{h}_2})^{-1}} &
-{\cdots} &
-{\mathbf{G}_{t,2}^T (\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1} \mathbf{G}_{t,Q}}\\
-{\vdots} &
-{\vdots} &
-{\ddots} &
-{\vdots}\\
-{\mathbf{G}_{t,Q}^T (\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1} \mathbf{G}_{t,1}} &
-{\mathbf{G}_{t,Q}^T (\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1} \mathbf{G}_{t,2}} &
-{\cdots} &
-{(\mathbf{C}_{t}^{\mathbf{h}_Q})^{-1}}
-\end{bmatrix}^{-1}
-\tag{36} \label{36}</script><p>此处，对于 $j=1,2,…,Q$ ，有</p>
-<script type="math/tex; mode=display">
-\begin{align}
-\mathbf{C}_{t}^{\mathbf{h}_j}
-& = (\mathbf{C}_{t-1}^{\mathbf{h}_j})^{-1} +
-\mathbf{G}_{t,j}^T (\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1} \mathbf{G}_{t,j})^{-1} \nonumber \\
-& = \mathbf{C}_{t-1}^{\mathbf{h}_j} -
-\mathbf{C}_{t-1}^{\mathbf{h}_j} \mathbf{G}_{t,j}^T (\tilde{\mathbf{C}}_t^{\mathbf{y}} +
-\mathbf{G}_{t,j} \mathbf{C}_{t-1}^{\mathbf{h}_j} \mathbf{G}_{t,j}^T)^{-1} \mathbf{G}_{t,j} \mathbf{C}_{t-1}^{\mathbf{h}_j} \nonumber
-\end{align}
-\tag{37} \label{37}</script><p>其中第二个等式通过矩阵求逆引理建立。 $\mathbf{C}<em>{t-1}^{\mathbf{h}_j}$ 是 $\mathbf{h}_j$ 在 $t-1$ 时刻的后验协方差， $\tilde{\mathbf{C}}_t^{\mathbf{y}}$ 在 $\eqref{21b}$ 中定义。从 $\eqref{36}$ 可以看出，虽然 $\mathbf{h}$ 在 $t-1$ 时刻的后验协方差 $\mathbf{C}</em>{t-1}^{\mathbf{h}}$ 是块对角矩阵（见 $\eqref{11b}$ ），但 $\mathbf{C}_t^{\mathbf{h}}$ 是一个全矩阵。换而言之，通过精确回归 $\eqref{29}$ ，可以将来自不同latent函数的诱导点变得相关。<br>操作 $QM \times QM$ 大小的全后验协方差矩阵 $\mathbf{C}_t^{\mathbf{h}}$ 非常困难。而这会导致使用分布式运算 $\eqref{27b}$ 中latent函数预测的协方差不可行，因为它不能利用诱导点后验协方差的非对角块。此外，通过再次使用矩阵求逆引理，将 $\eqref{21b}$ 和 $\eqref{25}$ 代入，可以将 $\eqref{30b}$ 重写为</p>
-<script type="math/tex; mode=display">
-\mathbf{C}_{t}^{\mathbf{h}} =
-\mathbf{C}_{t-1}^{\mathbf{h}} -
-\mathbf{C}_{t-1}^{\mathbf{h}} \mathbf{P}_t^T \mathbf{H}_t^T (\bar{\mathbf{C}}_t^\mathbf{y})^{-1} \mathbf{H}_t \mathbf{P}_t \mathbf{C}_{t-1}^{\mathbf{h}}.
-\tag{38} \label{38}</script><p>尽管 $(\bar{\mathbf{C}}<em>t^\mathbf{y})^{-1}$ 很容易求得，计算 $\eqref{38}$ 仍然具有 $\mathcal{O}(Q^2 M^2)$ 的复杂性，同时还需要存储 $\mathbf{C}</em>{t}^{\mathbf{h}}$ 的非对角块。</p>
-<h4><span id="2variational-approximation-and-distributed-regression">2）Variational Approximation and Distributed Regression</span></h4><p>通过变分推断，使用下面的分解的分布来近似 $\eqref{29}$ 中的精确回归结果。</p>
-<script type="math/tex; mode=display">
-\mathcal{q} (\mathbf{h} \mid \mathcal{D}_{0:t}) =
-\prod_{j=1}^Q \mathcal{p} (\mathbf{h}_j \mid \mathcal{D}_{0:t})
-\tag{39} \label{39}</script><p>进而使得 $\mathcal{q} (\mathbf{h} \mid \mathcal{D}<em>{0:t})$ 和 $\mathcal{p} (\mathbf{h}_j \mid \mathcal{D}</em>{0:t})$ 之间的Kullback-Leibler（KL）散度最小化</p>
-<script type="math/tex; mode=display">
-KL(\mathcal{q} (\mathbf{h} \mid \mathcal{D}_{0:t}) \mid\mid
-\mathcal{p} (\mathbf{h}_j \mid \mathcal{D}_{0:t}) =
-\int \mathcal{q} (\mathbf{h} \mid \mathcal{D}_{0:t})
-\log \frac{\mathcal{q} (\mathbf{h} \mid \mathcal{D}_{0:t})}
-{\mathcal{p} (\mathbf{h}_j \mid \mathcal{D}_{0:t})}
-\operatorname{d \mathbf{h}}
-\tag{40} \label{40}</script><p>$\mathcal{q} (\mathbf{h} \mid \mathcal{D}<em>{0:t})$ 也可以通过最大化量测似然对数 $\log (\mathcal{p} (\mathbf{y}_t \mid \mathcal{D}</em>{0:t-1}))$ 的ELBO（evidence lower bound）来得到，ELBO由下式给出：</p>
-<script type="math/tex; mode=display">
-L_t(\theta) =
-\int \mathcal{q} (\mathbf{h} \mid \mathcal{D}_{0:t})
-\log \frac{\mathcal{p} (\mathbf{y}_t \mid \mathbf{h}) \mathcal{p} (\mathbf{h} \mid \mathcal{D}_{0:t-1})}
-{\mathcal{q} (\mathbf{h}_j \mid \mathcal{D}_{0:t})}
-\operatorname{d \mathbf{h}}
-\tag{41} \label{41}</script><p>上述定义中包含了模型的超参数向量 $\theta$ ，表明ELBO $L<em>t(\theta)$ 的确依赖于 $\theta$ 。<br>从 $\eqref{29}$ 和 $\eqref{39}$ 中可以发现，我们使用分解的分布逼近多元高斯分布。可以证明，使 $\eqref{40}$ 中KL散度最小化，同时使 $\eqref{41}$ 中的ELBO最大化的分布 $\mathcal{p} (\mathbf{h}_j \mid \mathcal{D}</em>{0:t})$ 是一个高斯分布，即</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{h}_j \mid \mathcal{D}_{0:t}) =
-\mathcal{N} (\mu_{t}^{\mathbf{h}_j}, \mathbf{C}_{t}^{\mathbf{h}_j}),
-j=1,2,...,Q.
-\tag{42} \label{42}</script><p>均值向量 $\mu<em>{t}^{\mathbf{h}_j}$ 与 $\eqref{35}$ 中所给向量相同。换而言之，通过精确回归 $\eqref{29}$ 获得的诱导点 $\mathbf{h}$ 的后验均值被包含在近似后验 $\mathcal{q} (\mathbf{h} \mid \mathcal{D}</em>{0:t})$ 内。协方差矩阵 $\mathbf{C}<em>{t}^{\mathbf{h}_j}$ 由$\eqref{37}$给出。应用分块矩阵求逆公式从诱导点$\mathbf{h}$的边缘后验协方差中减去 $\mathbf{C}</em>{t}^{\mathbf{h}<em>j}$ ，可以得到一个半正定矩阵。这表明近似后验 $\mathcal{q} (\mathbf{h} \mid \mathcal{D}</em>{0:t})$ 低估了诱导点的协方差。</p>
-<p>将$\eqref{42}$代入$\eqref{39}$可以得到诱导点上期望的近似后验</p>
-<script type="math/tex; mode=display">
-\mathcal{q} (\mathbf{h} \mid \mathcal{D}_{0:t}) =
-\mathcal{N} (\mu_{t}^{\mathbf{h}}, \mathbf{C}_{t}^{\mathbf{h}}) =
-\prod_{j=1}^Q \mathcal{N} (\mu_{t}^{\mathbf{h}_j}, \mathbf{C}_{t}^{\mathbf{h}_j})，
-\tag{43} \label{43}</script><p>其中 $\mu<em>{t}^{\mathbf{h}}$ 在$\eqref{30a}$中已经定义，将 $\mathbf{C}</em>{t}^{\mathbf{h}}$ 在此处重新定义为</p>
-<script type="math/tex; mode=display">
-\mathbf{C}_{t}^{\mathbf{h}} =
-\operatorname{diag}({\mathbf{C}_{t}^{\mathbf{h}_1}}, 
-{\mathbf{C}_{t}^{\mathbf{h}_2}},...,
-{\mathbf{C}_{t}^{\mathbf{h}_Q}}).
-\tag{44} \label{44}</script><p>注意，通过推导出的近似回归，来自不同潜在稀疏GPs的诱导点将总是具有独立的高斯后验。此外，只要矩阵 $\tilde{\mathbf{C}}_t^{\mathbf{y}}$ 对所有latent函数可用，$\mathbf{h}_j$的后验协方差就可以并行更新。由于消除了 $\mathbf{h}_j$ 之间的依赖，复杂性从 $\mathcal{O}(Q^2 M^2)$ 降到了 $\mathcal{O}(Q M^2)$ 。</p>
-<p>将$\eqref{10}$，$\eqref{20}$，$\eqref{39}$和$\eqref{42}$代入$\eqref{41}$，可以发现$\eqref{41}$中所有被积分布都是高斯分布。因此，ELBO $L_t(\theta)$ 可以等于</p>
-<script type="math/tex; mode=display">
-\begin{align}
-L_t(\theta) =
-& -\frac{1}{2} \operatorname{log} \vert 2\pi \tilde{\mathbf{C}}_t^{\mathbf{y}} \vert
--\frac{1}{2} \sum_{j=1}^Q \operatorname{log} \vert \mathbf{C}_{t-1}^{\mathbf{h}_j} (\mathbf{C}_{t}^{\mathbf{h}_j})^{-1} \vert \nonumber \\
-& -\frac{1}{2} (\mathbf{y}_t - \mathbf{H}_t \mu_t^{\mathbf{h}})^T
-(\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1}
-(\mathbf{y}_t - \mathbf{H}_t \mu_t^{\mathbf{h}}) \nonumber \\
-& -\frac{1}{2} \operatorname{tr} (\mathbf{P}_t^T \mathbf{H}_t^T (\tilde{\mathbf{C}}_t^{\mathbf{y}})^{-1} \mathbf{H}_t \mathbf{P}_t \cdot
-\operatorname{diag}(\mathbf{C}_t^{\mathbf{h}_1},...,\mathbf{C}_t^{\mathbf{h}_Q})) \nonumber \\
-& -\frac{1}{2} \sum_{j=1}^Q \operatorname{tr} ((\mathbf{C}_t^{\mathbf{h}_j})^{-1}
-(\mu_t^{\mathbf{h}_j} - \mu_{t-1}^{\mathbf{h}_j})
-(\mu_t^{\mathbf{h}_j} - \mu_{t-1}^{\mathbf{h}_j})^T) \nonumber \\
-& -\frac{1}{2} \sum_{j=1}^Q \operatorname{tr} ((\mathbf{C}_t^{\mathbf{h}_j})^{-1} 
-(\mathbf{C}_t^{\mathbf{h}_j} - \mathbf{C}_{t-1}^{\mathbf{h}_j})). \nonumber
-\end{align}
-\tag{45} \label{45}</script><p>$\eqref{42}$下面已经指出，$\eqref{39}$中的变分近似倾向于低估后验协方差，这可能导致近似后验 $\mathcal{q} (\mathbf{h} \mid \mathcal{D}<em>{0:t})$ 的过早收敛。换而言之， $\mathcal{q} (\mathbf{h} \mid \mathcal{D}</em>{0:t})$ 可能在几次迭代之后不会再更新。这可能导致模型预测性能的下降，因为并不是所有训练数据都被充分挖掘了。考虑到所采用的变分近似的性质（见$\eqref{42}$下面的讨论），本文采用UI（Uncertainty Injection）技术解决这个问题。具体来说就是，不改变后验均值 $\mu_{t}^{\mathbf{h}_j}$ ，将后验协方差放大为</p>
-<script type="math/tex; mode=display">
-\mathbf{C}_{t}^{\mathbf{h}_j} \leftarrow
-\frac{1}{\lambda} \mathbf{C}_{t}^{\mathbf{h}_j}.
-\tag{46} \label{46}</script><p>其中因子 $\lambda$ 取值范围为 $[0.95, 1]$ 。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210521102512.png" alt></p>
-<p>算法1总结了稀疏多输出GP模型的近似回归技术。它使用新获得的数据 ${ \mathbf{x}<em>{t,n}, \mathbf{y}</em>{t,n} }_{n=1}^{N_t}$ ，在给定的模型超参数$\theta$下，在诱导点上执行后验的递归更新。该算法也可以很容易的修改成处理丢失数据，只要在执行算法时去掉 $\mathbf{H}_t$ 中与缺失数据点相关的行即可。</p>
-<p>算法1的分布式实现也很简单。假设有 $Q$ 个端节点和一个中心节点，latent函数值的预测（算法1的2-5行）可以在端节点并行执行。预测的大小为 $N_t \times 1$ 的latent函数值及大小为 $N_t \times N_t$ 的协方差矩阵在中心节点进行融合（算法1的6-9行），得到的大小为 $PN_t \times PN_t$ 的矩阵 $\tilde{\mathbf{C}}_t^\mathbf{y}$ 和大小为 $PN_t \times 1$ 的向量 $(\bar{\mathbf{C}}_t^\mathbf{y})^{-1} (\mathbf{y}_t - \bar{\mu}_t^{\mathbf{y}})$ 被发送回端节点进行近似回归（算法1的10-13行）。数据的交换量主要取决于训练数据点的数量 $N_t$ 。</p>
-<h3><span id="c-mpf-based-model-regression-and-learning">C. MPF-based Model Regression and Learning</span></h3><p>在前两小节中提出的模型预测和近似回归算法都假设超参数是不变的。然而，除了诱导点值之外，训练所考虑的稀疏多输出GP模型所需的模型超参数也需要从顺序到达的数据中学习得到。诱导点与给定超参数时的量测 $\mathbf{y}_t$ 线性相关（见 $\eqref{21a}$ 和 III-A 结尾处的讨论）。然而，超参数和 $\mathbf{y}_t$ 是线性无关的，这使得分析推导它们的后验非常困难。因此，诱导点和超参数的联合推断是一个线性与非线性混合的贝叶斯滤波问题。我们将MPF用于这个滤波任务，以实现稀疏多输出模型的在线回归与学习。</p>
-<p>基于MPF的回归和学习算法具体如下：在 $t-1$ 时刻，诱导点 $\mathbf{h}$ 和模型超参数 $\theta$ 的联合后验可以分解为</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{h}, \theta_{t-1} \mid \mathcal{D}_{0:t-1}) =
-\mathcal{p} (\mathbf{h}\mid \theta_{t-1}, \mathcal{D}_{0:t-1})
-\mathcal{p} (\theta_{t-1} \mid \mathcal{D}_{0:t-1})
-\tag{47} \label{47}</script><p>其中 $\mathcal{p} (\mathbf{h}, \theta<em>{t-1} \mid \mathcal{D}</em>{0:t-1})$ 对应于 $\eqref{10}$ 中计算得到的 $\theta<em>{t-1}$ 处 $\mathbf{h}$ 的后验，此处 $\theta</em>{t-1}$ 是模型超参数的估计。通过MPF，使用一组数量为 $K$ 的粒子 ${ \mu<em>{t-1}^{\mathbf{h},k}, \mathbf{C}</em>{t-1}^{\mathbf{h},k}, \theta<em>{t-1}^k, \omega</em>{t-1}^k }_{k=1}^K$ 根据经验近似 $\eqref{47}$ 中的联合后验，这些粒子实际上对应 $K$ 个不同的稀疏多输出GP模型，如下所示</p>
-<script type="math/tex; mode=display">
-\mathcal{p} (\mathbf{h}, \theta_{t-1} \mid \mathcal{D}_{0:t-1}) \approx
-\sum_{k=1}^K \omega_{t-1}^k \mathcal{N}(\mu_{t-1}^{\mathbf{h},k}, \mathbf{C}_{t-1}^{\mathbf{h},k})
-\delta(\theta_{t-1} - \theta_{t-1}^k)
-\tag{48} \label{48}</script><p>其中， $\mathcal{p} (\mathbf{h} \mid \theta<em>{t-1}^k, \mathcal{D}</em>{0:t-1}) =<br>\mathcal{N}(\mu<em>{t-1}^{\mathbf{h},k}, \mathbf{C}</em>{t-1}^{\mathbf{h},k})$ 根据 $\eqref{10}$ 已经使用， $\delta(\cdot)$ 是狄拉克 $\delta$ 函数， $\omega<em>{t-1}^k$ 是满足 $\sum</em>{k=1}^K \omega_{t-1}^k = 1$ 的粒子权重。</p>
-<p>$\theta_{t-1}$ 的时间迭代式如下</p>
-<script type="math/tex; mode=display">
-\theta_t = a \theta_{t-1} +
-(1-a)\bar{\theta}_{t-1} + \mathbf{v}_{t-1}
-\tag{49} \label{49}</script><p>这使得在生成收敛的超参数估计时，可以使用核平滑收缩技术搜索超参数空间。</p>
-<p>此处， $a=(3b-1)/(2b), b \in (0.95, 0.99)$ ， $\bar{\theta}<em>{t-1} = \sum</em>{k=1}^K \omega<em>{t-1}^k \theta</em>{t-1}^k$ 是 $\theta<em>{t-1}$ 的经验均值。向量 $\mathbf{v}</em>{t-1}$ 从 $\mathcal{N}(0, (1-a^2) \mathbf{V}<em>{t-1})$ 中得出，其中 $\mathbf{V}</em>{t-1} = \sum<em>{k=1}^{K} \omega</em>{t-1}^k (\theta<em>{t-1}^k - \bar{\theta}</em>{t-1})(\theta<em>{t-1}^k - \bar{\theta}</em>{t-1})^T$ 是 $\theta<em>{t-1}$ 的经验协方差矩阵。从 $\eqref{49}$ 中可以得出给定 $\theta</em>{t-1}$ 时 $\theta_t$ 的条件分布为</p>
-<script type="math/tex; mode=display">
-\mathcal{p}(\theta_t \mid \theta_{t-1}) =
-\mathcal{N}(a \theta_{t-1} + (1-a)\bar{\theta}_{t-1},
-(1-a^2)\mathbf{V}_{t-1}).
-\tag{50} \label{50}</script><p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210521102614.png" alt></p>
-<p>MPF算法使用算法2在 $t$ 时刻更新 $k$ 个粒子。可以看出，一旦获得新的数据集 ${ \mathbf{X}_t, \mathbf{y}_t }$ ，MPF首先更新每个粒子的超参数估计（算法2第3行）。然后，MPF使用更新后的模型超参数和算法1中给出的近似回归技术来精确每个粒子的诱导点的后验（算法2第4行）。这样，MPF实现了诱导点和模型超参数的联合推断。注意，算法1在MPF的每次迭代中运行 $K$ 次，因为它对难以分析处理的诱导点和模型超参数联合后验使用了经验近似（见 $\eqref{48}$）。</p>
-<p>注意，算法2的第5行与使用量测似然 $\mathcal{p} (\mathbf{y}<em>t \mid \mathcal{D}</em>{0:t-1})$ 更新粒子权重的标准MPF不同，它使用了下界ELBO $L_t(\theta_t^k)$ 来进行粒子权重更新，这来自于更新诱导点 $\mathbf{h}$ 的后验时采用的变分近似（见 $\eqref{39}$ ）。通过粒子重采样（算法2的第8行），使用ELBO选择不同的稀疏多输出GP模型。</p>
-<p>当在实验中实现MPF时，采用了基于有效样本大小（ESS，effrctive sample size）的残差重采样。当在线训练停止时，MPF算法输出权重最大的粒子。这与稀疏多输出模型相对应，其超参数由输出粒子的 $\theta_t^k$ 给出，其均值和协方差由输出粒子的 $\mu_t^{\mathbf{h},k}$ 和 $\mathbf{C}_t^{\mathbf{h},k}$ 给出。</p>
-<p>在存在 $Q$ 个端节点和一个中心节点时，算法2中的MPF可以以如下分布式方式实现。每个端节点对所有 $K$ 个粒子执行第 $j$ 个latent函数的近似回归（见算法1的2-5行和10-13行）。中心节点融合来自端节点的结果，并在执行粒子重采样之后，返回更新的超参数估计 $\theta_t^k$ 以及诱导点的均值和协方差。</p>
-<p>在上述的基于MPF的训练算法中，当训练数据点的数量 $N<em>t$ 较小，满足 $PN_t \lt M$ 时，最耗时的部分是在更新模型超参数和用于计算ELBO $\eqref{45}$ 的 $(\mathbf{C}</em>{t-1}^{\mathbf{h}_j})^{-1}$ 之后 $\eqref{15}$ 中 $\mathbf{K}_j^{-1} (\mathbf{Z}_j, \mathbf{Z}_j)$ 的计算。因此，上述提出的在线训练技术的计算成本为 $\mathcal{O}(M^3)$ 。</p>
-<h2><span id="iv-experiments">IV. EXPERIMENTS</span></h2><ul>
-<li>实验内容：测试第三节提出的基于MPF的算法的性能</li>
-<li>两组实验<ul>
-<li>一组使用合成数据</li>
-<li>一组使用真实数据</li>
-</ul>
-</li>
-<li>设实验中的latent函数具有<ul>
-<li>零均值GP先验（即 $m_j(\mathbf{x}) = 0$ ）</li>
-<li>稳态平方指数核（SE）（见 $\eqref{3}$ ）</li>
-</ul>
-</li>
-<li>粒子数固定，设为 $K=20$ </li>
-<li>遗忘因子 $\lambda = 0.99$ </li>
-<li>性能指标<ul>
-<li>均方根误差（RMSE）</li>
-<li>负对数似然（NLL）</li>
-</ul>
-</li>
-</ul>
-<p>初始化所提出的基于MPF的训练算法需要确定 $K$ 个粒子，以便建立 $\eqref{48}$ 中的诱导点和模型超参数的经验近似联合分布。为此，我们通过缓存一些首先到达的用于算法初始化的训练数据集来模拟实际场景。对于使用合成数据的实验，存储前3个训练数据集。对于使用真实数据的实验，将前80个训练数据集用于初始化配置。缓存的数据被送到为COGP开发的基于随机梯度的离线训练算法，以产生所需的 $K$ 个稀疏多输出GP模型。我们修改了COGP训练算法，使其不再使用独立的高斯过程作为输出变量。求得的 $K$ 个粒子被赋予 $\frac{1}{K}$ 的权重，并且这些粒子彼此通常互不相同。这是因为COGP训练算法将诱导点的位置设置为随机选择的训练数据点。选择上述初始化方案是因为没有关于模型超参数初始分布的信息可用。</p>
-<p>实验运行于MATLAB上。</p>
-<h3><span id="a-synthetic-data">A. Synthetic Data</span></h3><p>首先，我们考虑同时建模以下两个具有良好相关性的二元函数</p>
-<script type="math/tex; mode=display">
-\begin{align}
-f_1(x_1, x_2) & = 3\cos(x_1) + 4\cos(2x_2)
-\tag{51a} \label{51a} \\
-f_2(x_1, x_2) & = 2cos(x_1) + 3\cos(2x_2).
-\tag{51b} \label{51b}
-\end{align}</script><p>为此，我们使用具有 $P = 2$ 个输出和 $Q = 2$ 个latent稀疏函数的稀疏多输出GP模型。每个latent稀疏GP具有 $M = 60$ 个诱导点，其位置从对应于笛卡尔乘积 $[-4.5, 4.5] \times [-4.5, 4.5]$ 的区域 $\chi$ 中随机选择。我们首先生成60个训练数据集，然后每次将一个数据集输入到所提出的基于MPF的算法中，以在线方式训练上述多输出GP模型。每个训练集包含30个输入输出对，输入从区域 $\chi$ 中随机选择。输出产生的步骤为，首先将标准差为 0.5 和 0.4 的独立 0 均值高斯噪声加到真实函数值 $f_1(x_1, x_2)$ 和 $f_2(x_1, x_2)$ 上。然后，对于第一个输出，将对应于区域 $[-4, 0] \times [0, 4]$ 的输入移除。对于第二个输出，通过消除输入来自区域 $[0, 4] \times [-4, 0]$ 的输入来创建缺失值（missing values）。我们运行了50次蒙特卡洛集成过程。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210528155502.png" alt></p>
-<p>在图2(a) 中，我们绘制了当 $x_2 = 2$ 时，99%的置信区间内，函数 $f_1(x_1, x_2)$ 的预测值。在确定的集成运行中，使用训练的稀疏多输出GP模型生成结果。同时与真实的函数值相比较。对于函数 $f_1(x_1, x_2 = 2)$ ，它在区域 $x_1 \in [-4, 0]$ 上的值实际上是不可观测的。但是所获得的多输出模型能够精确地重构它们，这表明所提出的在线训练算法可以有效地利用待建模的两个二元函数之间的相关性。为了进一步说明这一点，函数 $f_1(x_1, x_2)$ 使用具有精确推理的单输出GP独立建模，得到的回归结果如图2(b) 所示。可以看出，当 $x_1 \in [-4, 0]$ 时， $f_1(x_1, x_2 = 2)$ 的函数值还原的比较差，这在一定程度上是意料之中的，因为它们在训练数据中丢失了。图2(c) 和2(d) 是当 $x_1 = 2$ 时函数 $f_2(x_1, x_2)$ 的预测值。它们是通过我们训练的稀疏多输出GP模型和一个独立的目标仅为 $f_2(x_1, x_2)$ 的单输出GP生成的。观察结果与图2(a) 和 2(b) 非常类似。具体来说， 无法观测的区域 $x_2 \in [-4, 0]$ 通过使用上一节提出的算法以在线方式训练的多输出模型很好地完成了重建。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210528155549.png" alt></p>
-<p>图3显示了在生成图2中结果的集成运行期间模型超参数估计的迭代。在线模型训练过程的开始的时候，超参数估计显示出很大的变化。这是因为初始化的粒子对应于不同的多输出GP模型，并且它们可以在相同的训练数据集上生成不同的ELBOs（见 $\eqref{45}$ ）。根据算法2的第5行和第7行，这将导致不同的粒子权重。由于所提出的基于MPF的算法输出具有最大权重的粒子，超参数估计可能会有很大差异，因为它们可能来自不同的粒子。由于使用了超参数迭代模型（见 $\eqref{49}$ ），经过几次迭代后，MPF趋于收敛，粒子将具有相似的超参数估计。</p>
-<h3><span id="b-robot-inverse-dynamics-data">B. Robot Inverse Dynamics Data</span></h3><h2><span id="appendix">APPENDIX</span></h2><p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210528181547.png" alt></p>
-<h2><span id="补充知识">补充知识</span></h2><h3><span id="随机过程">随机过程</span></h3><p>在概率论概念中，<strong>随机过程</strong>是随机变量的集合。若一随机系统的样本点是随机函数，则称此函数为样本函数，这一随机系统全部样本函数的集合是一个随机过程。实际应用中，样本函数的一般定义在时间域或者空间域。随机过程的实例如股票和汇率的波动、语音信号、视频信号、体温的变化，随机运动如布朗运动、随机徘徊等等。</p>
-<h3><span id="边缘分布边际分布marginal-distribution">边缘分布（边际分布）（Marginal Distribution）</span></h3><p><strong>边缘分布</strong>指在概率论和统计学的多维随机变量中，只包含其中部分变量的概率分布。</p>
-<h4><span id="定义">定义</span></h4><p>假设有一个和两个变量相关的概率分布：</p>
-<script type="math/tex; mode=display">
-P(x,y)</script><p>关于其中一个特定变量的边缘分布则为给定其他变量的条件概率分布：</p>
-<script type="math/tex; mode=display">
-P(x)=\sum_y P(x,y)=\sum_y P(x \mid y) P(y)</script><p>在这个边缘分布中，我们得到只关于一个变量的概率分布，而不再考虑另一变量的影响，实际上进行了降维操作。在实际应用中，例如人工神经网络的神经元互相关联，在计算它们各自的参数的时候，就会使用边缘分布计算得到某一特定神经元（变量）的值。</p>
-<h3><span id="高斯分布">高斯分布</span></h3><h4><span id="一元高斯分布">一元高斯分布</span></h4><p>对于随机变量 $X \sim \mathcal{N}(\mu, \sigma_2)$ ，则有如下的概率密度函数</p>
-<script type="math/tex; mode=display">
-\Large
-p(x)=\frac{1}{\sigma \sqrt{2\pi}} \cdot e^{-\frac{1}{2} \cdot (\frac{x-\mu}{\sigma})^2}</script><h4><span id="协方差">协方差</span></h4><p>期望值分别为 $\mu_x = E[X]$ 和 $\mu_y = E[Y]$ 的两个随机变量 $X$ 与 $Y$ 之间的协方差 $Cov(X,Y)$ 定义为：</p>
-<script type="math/tex; mode=display">
-Cov(X,Y) = E[(X-\mu_x)(Y-\mu_y)]</script><h4><span id="高斯核函数rbf径向基函数核平方指数核">高斯核函数（RBF，径向基函数核，平方指数核）</span></h4><script type="math/tex; mode=display">
-\Large
-K(\mathbf{x},\mathbf{x'}) =
-e^{-\frac{\left\Vert \mathbf{x}-\mathbf{x'} \right\Vert}{2\sigma^2}}</script><p>其中 $\left\Vert \mathbf{x}-\mathbf{x’} \right\Vert$ 可以看做两个特征向量之间的平方欧几里得距离， $\sigma$ 是一个自由参数。一种等价但更为简单的定义是设一个新的参数 $\gamma$ ，其表达式为 $\gamma = \frac{1}{2\sigma^2}$ ：</p>
-<script type="math/tex; mode=display">
-\Large
-K(\mathbf{x},\mathbf{x'}) =
-e^{-\gamma \left\Vert \mathbf{x}-\mathbf{x'} \right\Vert}</script><h4><span id="多元高斯分布的三个条件">多元高斯分布的三个条件</span></h4><p>N维随机向量 $X=[X<em>{1},\dots ,X</em>{N}]^{T}$ 如果服从多变量正态分布，必须满足下面的三个等价条件：</p>
-<ul>
-<li>任何线性组合 $Y=a<em>{1}X</em>{1}+\cdots + a<em>{N}X</em>{N}$ 服从正态分布。</li>
-</ul>
-<ul>
-<li>存在随机向量 $Z=[Z<em>{1},\dots ,Z</em>{M}]^{T}$ ( 它的每个元素服从独立标准正态分布），向量 $\mu =[\mu <em>{1},\dots ,\mu </em>{N}]^{T}$ 及 $N \times M$ 矩阵 $A$ 满足 $X=AZ+\mu$ .</li>
-</ul>
-<ul>
-<li>存在 $\mu$ 和一个对称半正定阵 $\Sigma$ 满足 $X$ 的特征函数 <script type="math/tex; mode=display">
-\phi _{X}(u;\mu ,\Sigma )=\mathrm {e} ^{i\mu ^{T}u-{\frac {1}{2}}u^{T}\Sigma u}</script></li>
-</ul>
-<h4><span id="多元高斯分布的概率密度函数">多元高斯分布的概率密度函数</span></h4><script type="math/tex; mode=display">
-\Large
-f_x(x_1,\cdots,x_k)=\frac{1}{\sqrt{(2\pi)^k \left\lvert \Sigma \right\rvert}} \cdot 
-e^{-\frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu)}</script><p>此处的 $\left\lvert \Sigma \right\rvert$ 表示协方差矩阵的行列式。</p>
-<h3><span id="高斯过程gaussian-process">高斯过程（Gaussian process）</span></h3><p>在概率论和统计学中，<strong>高斯过程</strong>是观测值出现在一个连续域（例如时间或空间）的随机过程。在高斯过程中，连续输入空间中每个点都是与一个正态分布的随机变量相关联。此外，这些随机变量的每个有限集合都有一个多元正态分布，换句话说他们的任意有限线性组合是一个正态分布。高斯过程的分布是所有那些（无限多个）随机变量的联合分布，正因如此，它是连续域（例如时间或空间）上函数的分布。</p>
-<p>高斯过程被认为是一种机器学习算法，是以惰性学习方式，利用点与点之间同质性的度量作为核函数，以从输入的训练数据预测未知点的值。其预测结果不仅包含该点的值，而同时包含不确定性的资料——它的一维高斯分布（即该点的边际分布）。</p>
-<p>可以把高斯过程看成多元正态分布的无限维广义延伸。</p>
-<h4><span id="定义">定义</span></h4><p>一统计学分布定义为 ${ X<em>t, t \in T }$ 是一个<strong>高斯过程</strong>，当且仅当对下标集合 $T$ 的任意有限子集 $t_1,…,t_k$ ，满足 $X</em>{t<em>1,…,t_k} = (X</em>{t<em>1},…,X</em>{t<em>k})$ 是一个多元正态分布，这等同于说 $(X</em>{t<em>1},…,X</em>{t_k})$ 的任一线性组合是一单变量正态分布。</p>
-<h3><span id="克罗内克积">克罗内克积</span></h3><p>如果 $A$ 是一个 $m \times n$ 的矩阵， $B$ 是一个 $p \times q$ 的矩阵，<strong>克罗内克积</strong> $A \bigotimes B$ 则是一个 $mp \times nq$ 的分块矩阵</p>
-<script type="math/tex; mode=display">
-A \bigotimes B =
-\begin{bmatrix}
-{a_{11} B} & {\cdots} & {a_{1n} B} \\
-{\vdots} & {\ddots} & {\vdots} \\
-{a_{m1} B} & {\cdots} & {a_{mn} B}
-\end{bmatrix}.</script>
+        
+          <a class="article-more-a" href="/2021/06/07/Postgraduate/Online-Sparse-Multi-Output-Gaussian-Process-Regression-and-Learning/#more">more >></a>
+        
       
 
       

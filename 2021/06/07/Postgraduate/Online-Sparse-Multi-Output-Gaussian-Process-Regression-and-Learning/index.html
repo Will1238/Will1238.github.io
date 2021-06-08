@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>【论文阅读】Online-Sparse-Multi-Output-Gaussian-Process-Regression-and-Learning | Ling&#39;s Storm</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Content[TOC] I. IntroduceA. Multiple-output Guassian Processes The standard GP model assumes a signle output variable only  The conventianal(传统的) approach for multi-output regression consists of apply">
+  <meta name="description" content="Content  I. Introduce A. Multiple-output Guassian Processes B. Complexity Reduction via Sparse Approximation Contributions   II. SPARSE MULTI-OUTPUT GP MODEL III. ONLINE REGRESSION AND LEARNING A. Mod">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【论文阅读】Online-Sparse-Multi-Output-Gaussian-Process-Regression-and-Learning">
 <meta property="og:url" content="http://yoursite.com/2021/06/07/Postgraduate/Online-Sparse-Multi-Output-Gaussian-Process-Regression-and-Learning/index.html">
 <meta property="og:site_name" content="Ling&#39;s Storm">
-<meta property="og:description" content="Content[TOC] I. IntroduceA. Multiple-output Guassian Processes The standard GP model assumes a signle output variable only  The conventianal(传统的) approach for multi-output regression consists of apply">
+<meta property="og:description" content="Content  I. Introduce A. Multiple-output Guassian Processes B. Complexity Reduction via Sparse Approximation Contributions   II. SPARSE MULTI-OUTPUT GP MODEL III. ONLINE REGRESSION AND LEARNING A. Mod">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210521102311.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210521102512.png">
@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210528155549.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210528181547.png">
 <meta property="article:published_time" content="2021-06-07T13:35:50.000Z">
-<meta property="article:modified_time" content="2021-06-07T13:39:33.792Z">
+<meta property="article:modified_time" content="2021-06-08T02:18:46.029Z">
 <meta property="article:author" content="Will Ling">
 <meta property="article:tag" content="Object Tracking">
 <meta property="article:tag" content="Postgraduate">
@@ -178,7 +178,54 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2><span id="content">Content</span></h2><p>[TOC]</p>
+        <h2><span id="content">Content</span></h2><!-- toc -->
+<ul>
+<li><a href="#i-introduce">I. Introduce</a><ul>
+<li><a href="#a-multiple-output-guassian-processes">A. Multiple-output Guassian Processes</a></li>
+<li><a href="#b-complexity-reduction-via-sparse-approximation">B. Complexity Reduction via Sparse Approximation</a></li>
+<li><a href="#contributions">Contributions</a></li>
+</ul>
+</li>
+<li><a href="#ii-sparse-multi-output-gp-model">II. SPARSE MULTI-OUTPUT GP MODEL</a></li>
+<li><a href="#iii-online-regression-and-learning">III. ONLINE REGRESSION AND LEARNING</a><ul>
+<li><a href="#a-model-prediction">A. Model Prediction</a></li>
+<li><a href="#b-approximate-model-regression">B. Approximate Model Regression</a><ul>
+<li><a href="#1exact-regression">1）Exact Regression</a></li>
+<li><a href="#2variational-approximation-and-distributed-regression">2）Variational Approximation and Distributed Regression</a></li>
+</ul>
+</li>
+<li><a href="#c-mpf-based-model-regression-and-learning">C. MPF-based Model Regression and Learning</a></li>
+</ul>
+</li>
+<li><a href="#iv-experiments">IV. EXPERIMENTS</a><ul>
+<li><a href="#a-synthetic-data">A. Synthetic Data</a></li>
+<li><a href="#b-robot-inverse-dynamics-data">B. Robot Inverse Dynamics Data</a></li>
+</ul>
+</li>
+<li><a href="#appendix">APPENDIX</a></li>
+<li><a href="#补充知识">补充知识</a><ul>
+<li><a href="#随机过程">随机过程</a></li>
+<li><a href="#边缘分布边际分布marginal-distribution">边缘分布（边际分布）（Marginal Distribution）</a><ul>
+<li><a href="#定义">定义</a></li>
+</ul>
+</li>
+<li><a href="#高斯分布">高斯分布</a><ul>
+<li><a href="#一元高斯分布">一元高斯分布</a></li>
+<li><a href="#协方差">协方差</a></li>
+<li><a href="#高斯核函数rbf径向基函数核平方指数核">高斯核函数（RBF，径向基函数核，平方指数核）</a></li>
+<li><a href="#多元高斯分布的三个条件">多元高斯分布的三个条件</a></li>
+<li><a href="#多元高斯分布的概率密度函数">多元高斯分布的概率密度函数</a></li>
+</ul>
+</li>
+<li><a href="#高斯过程gaussian-process">高斯过程（Gaussian process）</a><ul>
+<li><a href="#定义-1">定义</a></li>
+</ul>
+</li>
+<li><a href="#克罗内克积">克罗内克积</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
 <h2><span id="i-introduce">I. Introduce</span></h2><h3><span id="a-multiple-output-guassian-processes">A. Multiple-output Guassian Processes</span></h3><ul>
 <li><p>The standard GP model assumes a signle output variable only</p>
 </li>
@@ -231,6 +278,7 @@
 <li>Approximate model regression</li>
 <li>Performance verification</li>
 </ul>
+<span id="more"></span>
 <h2><span id="ii-sparse-multi-output-gp-model">II. SPARSE MULTI-OUTPUT GP MODEL</span></h2><p><img src="https://cdn.jsdelivr.net/gh/Will1238/cloudimg@main/papers/2021/20210521102311.png" alt></p>
 <p>使用 $x \in \mathbb{R}^{D \times 1}$ 作为输入，其中 $D$ 是输入的维度。模型有 $P$ 个输出，每个输出都是 $Q$ 个latent函数（$g_j(x), j = 1,2,…,Q$）的线性组合。<br>第$i$个模型输出 $y_i(X)$ 为：</p>
 <script type="math/tex; mode=display">
